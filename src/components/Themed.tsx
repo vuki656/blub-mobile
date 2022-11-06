@@ -11,10 +11,10 @@ import {
 import { Colors } from '../shared/constants'
 import { useColorScheme } from '../shared/hooks'
 
-export function useThemeColor(
+export const useThemeColor = (
     props: { dark?: string, light?: string },
     colorName: keyof typeof Colors.dark & keyof typeof Colors.light
-) {
+) => {
     const theme = useColorScheme()
     const colorFromProps = props[theme]
 
@@ -33,7 +33,7 @@ type ThemeProps = {
 export type TextProps = DefaultText['props'] & ThemeProps
 export type ViewProps = DefaultView['props'] & ThemeProps
 
-export function Text(props: TextProps) {
+export const Text = (props: TextProps) => {
     const { darkColor, lightColor, style, ...otherProps } = props
 
     const color = useThemeColor({ dark: darkColor, light: lightColor }, 'text')
@@ -46,7 +46,7 @@ export function Text(props: TextProps) {
     )
 }
 
-export function View(props: ViewProps) {
+export const View = (props: ViewProps) => {
     const { darkColor, lightColor, style, ...otherProps } = props
     const backgroundColor = useThemeColor({ dark: darkColor, light: lightColor }, 'background')
 
