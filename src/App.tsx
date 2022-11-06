@@ -2,7 +2,7 @@ import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import Navigation from './navigation'
+import { Navigation } from './navigation'
 import {
     useCachedResources,
     useColorScheme,
@@ -14,14 +14,14 @@ export default function App() {
 
     if (!isLoadingComplete) {
         return null
-    } else {
-        return (
-            <SafeAreaProvider>
-                <Navigation colorScheme={colorScheme} />
-                <StatusBar />
-            </SafeAreaProvider>
-        )
     }
+
+    return (
+        <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+        </SafeAreaProvider>
+    )
 }
 
 registerRootComponent(App)

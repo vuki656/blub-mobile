@@ -4,12 +4,11 @@ import {
     StyleSheet,
 } from 'react-native'
 
+import { EditScreenInfo } from '../components'
 import {
     Text,
     View,
 } from '../components/Themed'
-
-import { EditScreenInfo } from '../components'
 
 export default function ModalScreen() {
     return (

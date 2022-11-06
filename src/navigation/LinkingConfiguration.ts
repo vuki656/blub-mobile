@@ -9,7 +9,7 @@ import * as Linking from 'expo-linking'
 
 import type { RootStackParamList } from '../shared/types'
 
-const linking: LinkingOptions<RootStackParamList> = {
+export const linkingConfiguration: LinkingOptions<RootStackParamList> = {
     config: {
         screens: {
             Modal: 'modal',
@@ -32,5 +32,3 @@ const linking: LinkingOptions<RootStackParamList> = {
     },
     prefixes: [Linking.createURL('/')],
 }
-
-export default linking
