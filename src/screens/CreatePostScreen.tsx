@@ -5,20 +5,19 @@ import {
     Text,
     View,
 } from '../components/Themed'
-import type { RootTabScreenProps } from '../shared/types'
 
-export default function TabOneScreen(props: RootTabScreenProps<'TabOne'>) {
+export const CreatePostScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
-                Tab One
+                Tab Two
             </Text>
             <View
                 darkColor="rgba(255,255,255,0.1)"
                 lightColor="#eee"
                 style={styles.separator}
             />
-            <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+            <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
         </View>
     )
 }

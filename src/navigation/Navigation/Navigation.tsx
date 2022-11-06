@@ -4,9 +4,9 @@ import {
     NavigationContainer,
 } from '@react-navigation/native'
 
-import { linkingConfiguration } from '../LinkingConfiguration'
 import { RootNavigator } from '../RootNavigator'
 
+import { linkingConfiguration } from './linkingConfiguration'
 import type { NavigationProps } from './Navigation.types'
 
 export const Navigation = (props: NavigationProps) => {
