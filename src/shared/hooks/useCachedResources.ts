@@ -13,7 +13,7 @@ export const useCachedResources = () => {
     useEffect(() => {
         async function loadResourcesAndDataAsync() {
             try {
-                await SplashScreen.preventAutoHideAsync()
+                void SplashScreen.preventAutoHideAsync()
 
                 // Load fonts
                 await Font.loadAsync({
