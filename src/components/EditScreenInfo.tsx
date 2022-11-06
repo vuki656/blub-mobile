@@ -12,7 +12,7 @@ import {
     View,
 } from './Themed'
 
-export default function EditScreenInfo({ path }: { path: string }) {
+export const EditScreenInfo = ({ path }: { path: string }) => {
     return (
         <View>
             <View style={styles.getStartedContainer}>

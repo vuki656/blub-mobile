@@ -5,10 +5,11 @@ import {
 } from 'react-native'
 
 import {
-    EditScreenInfo,
     Text,
     View,
 } from '../components/Themed'
+
+import { EditScreenInfo } from '../components'
 
 export default function ModalScreen() {
     return (

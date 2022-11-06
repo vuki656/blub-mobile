@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-import EditScreenInfo from '../components/EditScreenInfo'
 import {
     Text,
     View,
 } from '../components/Themed'
 import type { RootTabScreenProps } from '../shared/types'
+import { EditScreenInfo } from '../components'
 
 export default function TabOneScreen(props: RootTabScreenProps<'TabOne'>) {
     return (
