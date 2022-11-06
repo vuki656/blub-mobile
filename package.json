@@ -10,7 +10,8 @@
         "web": "expo start --web",
         "test": "jest --watchAll",
         "lint": "yarn lint:prettier",
-        "lint:prettier": "prettier --loglevel warn --no-editorconfig --no-error-on-unmatched-pattern --check \"./**/*{yaml,yml,json,md}\" "
+        "lint:prettier": "prettier --loglevel warn --no-editorconfig --no-error-on-unmatched-pattern --check \"./**/*{yaml,yml,json,md}\" ",
+        "lint:eslint": "eslint ./src/**/*.{js,ts,tsx} --quiet --cache --cache-strategy content --cache-location './.eslintcache/'"
     },
     "dependencies": {
         "@expo/vector-icons": "^13.0.0",

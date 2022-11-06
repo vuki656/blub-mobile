@@ -16,6 +16,9 @@ node_modules/
 # Build
 dist/
 
+# Eslint
+.eslintcache
+
 # Misc
 npm-debug.*
 *.jks
