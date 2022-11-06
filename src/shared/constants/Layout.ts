@@ -5,7 +5,7 @@ const height = Dimensions.get('window').height
 
 const SMALL_DEVICE_WIDTH = 375
 
-export default {
+export const Layout = {
     isSmallDevice: width < SMALL_DEVICE_WIDTH,
     window: {
         height,

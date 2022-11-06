@@ -6,7 +6,7 @@ import {
     useState,
 } from 'react'
 
-export default function useCachedResources() {
+export const useCachedResources = () => {
     const [isLoadingComplete, setLoadingComplete] = useState(false)
 
     // Load any resources or data that we need prior to rendering the app
@@ -18,7 +18,7 @@ export default function useCachedResources() {
                 // Load fonts
                 await Font.loadAsync({
                     ...FontAwesome.font,
-                    'space-mono': require('../../assets/fonts/SpaceMono-Regular.ttf'),
+                    'space-mono': require('../../../assets/fonts/SpaceMono-Regular.ttf'),
                 })
             } catch (error) {
                 // We might want to provide this error information to an error reporting service

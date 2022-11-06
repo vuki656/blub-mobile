@@ -11,28 +11,28 @@ import type {
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
-  }
+    namespace ReactNavigation {
+        interface RootParamList extends RootStackParamList { }
+    }
 }
 
 export type RootStackParamList = {
-  Modal: undefined
-  NotFound: undefined
-  Root: NavigatorScreenParams<RootTabParamList> | undefined
+    Modal: undefined
+    NotFound: undefined
+    Root: NavigatorScreenParams<RootTabParamList> | undefined
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
-  RootStackParamList,
-  Screen
+    RootStackParamList,
+    Screen
 >
 
 export type RootTabParamList = {
-  TabOne: undefined
-  TabTwo: undefined
+    TabOne: undefined
+    TabTwo: undefined
 }
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, Screen>,
-  NativeStackScreenProps<RootStackParamList>
+    BottomTabScreenProps<RootTabParamList, Screen>,
+    NativeStackScreenProps<RootStackParamList>
 >

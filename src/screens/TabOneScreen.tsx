@@ -5,7 +5,7 @@ import {
     Text,
     View,
 } from '../components/Themed'
-import type { RootTabScreenProps } from '../types'
+import { RootTabScreenProps } from '../shared/types'
 
 export default function TabOneScreen(props: RootTabScreenProps<'TabOne'>) {
     return (

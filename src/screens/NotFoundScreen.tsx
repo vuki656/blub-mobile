@@ -7,7 +7,7 @@ import {
     Text,
     View,
 } from '../components/Themed'
-import type { RootStackScreenProps } from '../types'
+import { RootStackScreenProps } from '../shared/types'
 
 export default function NotFoundScreen({ navigation }: RootStackScreenProps<'NotFound'>) {
     return (

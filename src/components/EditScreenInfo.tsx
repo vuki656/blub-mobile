@@ -3,8 +3,7 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native'
-
-import Colors from '../constants/Colors'
+import { Colors } from '../shared/constants'
 
 import { MonoText } from './StyledText'
 import {

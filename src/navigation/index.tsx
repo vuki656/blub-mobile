@@ -12,20 +12,20 @@ import {
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
-import type { ColorSchemeName } from 'react-native'
+import { ColorSchemeName } from 'react-native'
 import { Pressable } from 'react-native'
 
-import Colors from '../constants/Colors'
-import useColorScheme from '../hooks/useColorScheme'
 import ModalScreen from '../screens/ModalScreen'
 import NotFoundScreen from '../screens/NotFoundScreen'
 import TabOneScreen from '../screens/TabOneScreen'
 import TabTwoScreen from '../screens/TabTwoScreen'
-import type {
+import { Colors } from '../shared/constants'
+import { useColorScheme } from '../shared/hooks'
+import { 
     RootStackParamList,
     RootTabParamList,
     RootTabScreenProps,
-} from '../types'
+} from '../shared/types'
 
 import LinkingConfiguration from './LinkingConfiguration'
 
@@ -115,8 +115,8 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  color: string
-  name: React.ComponentProps<typeof FontAwesome>['name']
+    color: string
+    name: React.ComponentProps<typeof FontAwesome>['name']
 }) {
     return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />
 }
