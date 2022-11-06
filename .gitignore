@@ -7,6 +7,9 @@
 .pnp.*
 .yarn-integrity
 
+# Jest
+*snap
+
 # Node
 node_modules/
 

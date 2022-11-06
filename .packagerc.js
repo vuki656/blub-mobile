@@ -56,8 +56,6 @@ const config = {
         'prefer-alphabetical-optionalDependencies': 'error',
         'prefer-alphabetical-peerDependencies': 'error',
         'prefer-alphabetical-scripts': 'error',
-        'prefer-caret-version-dependencies': 'error',
-        'prefer-caret-version-devDependencies': 'error',
         'preferGlobal-type': 'error',
         'private-type': 'error',
         'repository-type': 'error',
