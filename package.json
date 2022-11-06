@@ -10,7 +10,7 @@
         "dev": "expo start",
         "ios": "expo start --ios",
         "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:package-json",
-        "lint:eslint": "eslint ./src/*.{js,ts,tsx} --quiet --cache --cache-strategy content --cache-location './.eslintcache/'",
+        "lint:eslint": "eslint ./src/**/*.{js,ts,tsx} --quiet --cache --cache-strategy content --cache-location './.eslintcache/'",
         "lint:package-json": "npmPkgJsonLint --configFile ./.packagerc.js .",
         "lint:prettier": "prettier --loglevel warn --no-editorconfig --no-error-on-unmatched-pattern --check \"./**/*{yaml,yml,json,md}\" ",
         "test": "jest --watchAll"

@@ -6,7 +6,8 @@
 
 import type { LinkingOptions } from '@react-navigation/native'
 import * as Linking from 'expo-linking'
-import { RootStackParamList } from '../shared/types'
+
+import type { RootStackParamList } from '../shared/types'
 
 const linking: LinkingOptions<RootStackParamList> = {
     config: {

@@ -1,3 +1,3 @@
-export * from './Themed'
-export * from './StyledText'
 export * from './EditScreenInfo'
+export * from './StyledText'
+export * from './Themed'

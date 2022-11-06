@@ -12,8 +12,8 @@ import {
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
-import { ColorSchemeName } from 'react-native'
 import { Pressable } from 'react-native'
+import type { ColorSchemeName } from 'react-native'
 
 import ModalScreen from '../screens/ModalScreen'
 import NotFoundScreen from '../screens/NotFoundScreen'
@@ -21,7 +21,7 @@ import TabOneScreen from '../screens/TabOneScreen'
 import TabTwoScreen from '../screens/TabTwoScreen'
 import { Colors } from '../shared/constants'
 import { useColorScheme } from '../shared/hooks'
-import { 
+import type {
     RootStackParamList,
     RootTabParamList,
     RootTabScreenProps,
@@ -36,7 +36,8 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     return (
         <NavigationContainer
             linking={LinkingConfiguration}
-            theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+        >
             <RootNavigator />
         </NavigationContainer>
     )
@@ -51,10 +52,21 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 function RootNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-            <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+            <Stack.Screen
+                component={BottomTabNavigator}
+                name="Root"
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                component={NotFoundScreen}
+                name="NotFound"
+                options={{ title: 'Oops!' }}
+            />
             <Stack.Group screenOptions={{ presentation: 'modal' }}>
-                <Stack.Screen name="Modal" component={ModalScreen} />
+                <Stack.Screen
+                    component={ModalScreen}
+                    name="Modal"
+                />
             </Stack.Group>
         </Stack.Navigator>
     )
@@ -74,10 +86,11 @@ function BottomTabNavigator() {
             initialRouteName="TabOne"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
-            }}>
+            }}
+        >
             <BottomTab.Screen
-                name="TabOne"
                 component={TabOneScreen}
+                name="TabOne"
                 options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
                     headerRight: () => (
                         <Pressable
@@ -86,24 +99,35 @@ function BottomTabNavigator() {
                             }}
                             style={({ pressed }) => ({
                                 opacity: pressed ? HALF_VISIBLE_NUMBER : VISIBLE_NUMBER,
-                            })}>
+                            })}
+                        >
                             <FontAwesome
+                                color={Colors[colorScheme].text}
                                 name="info-circle"
                                 size={25}
-                                color={Colors[colorScheme].text}
                                 style={{ marginRight: 15 }}
                             />
                         </Pressable>
                     ),
-                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({ color }) => (
+                        <TabBarIcon
+                            color={color}
+                            name="code"
+                        />
+                    ),
                     title: 'Tab One',
                 })}
             />
             <BottomTab.Screen
-                name="TabTwo"
                 component={TabTwoScreen}
+                name="TabTwo"
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({ color }) => (
+                        <TabBarIcon
+                            color={color}
+                            name="code"
+                        />
+                    ),
                     title: 'Tab Two',
                 }}
             />
@@ -118,5 +142,11 @@ function TabBarIcon(props: {
     color: string
     name: React.ComponentProps<typeof FontAwesome>['name']
 }) {
-    return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />
+    return (
+        <FontAwesome
+            size={30}
+            style={{ marginBottom: -3 }}
+            {...props}
+        />
+    )
 }
