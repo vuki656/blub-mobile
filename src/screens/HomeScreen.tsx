@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import {
     Text,
     View,
-} from '../components/Themed'
+} from '../components'
 
 export const HomeScreen = () => {
     return (
