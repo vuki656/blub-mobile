@@ -9,7 +9,7 @@ import { Colors } from '../shared/constants'
 import { useColorScheme } from '../shared/hooks'
 import type { RootTabParamList } from '../shared/types'
 
-import { TabBarIcon } from './TabBarIcon/TabBarIcon'
+import { TabBarIcon } from './TabBarIcon'
 
 const BottomTabNavigatorComponent = createBottomTabNavigator<RootTabParamList>()
 
