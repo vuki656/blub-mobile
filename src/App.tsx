@@ -1,5 +1,13 @@
 import { ApolloProvider } from '@apollo/client'
+import {
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat'
 import { registerRootComponent } from 'expo'
+import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
@@ -14,7 +22,15 @@ export default function App() {
     const isLoadingComplete = useCachedResources()
     const colorScheme = useColorScheme()
 
-    if (!isLoadingComplete) {
+    let [fontsLoaded] = useFonts({
+        Montserrat_300Light,
+        Montserrat_400Regular,
+        Montserrat_500Medium,
+        Montserrat_600SemiBold,
+        Montserrat_700Bold,
+    })
+
+    if (!isLoadingComplete || !fontsLoaded) {
         return null
     }
 

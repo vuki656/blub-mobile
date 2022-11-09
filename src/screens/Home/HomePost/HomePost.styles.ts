@@ -2,14 +2,20 @@ import { StyleSheet } from 'react-native'
 
 // TODO: extract colors to shared place
 export const styles = StyleSheet.create({
-    cardButtons: {
+    button: {
+        marginBottom: 10,
+    },
+    buttonVoteCount: {
+        marginRight: 5,
+    },
+    buttons: {
         display: 'flex',
     },
-    cardDate: {
+    date: {
         color: '#909296',
         marginBottom: 10,
     },
-    cardRoot: {
+    root: {
         backgroundColor: '#1a1b1e',
         borderRadius: 4,
         display: 'flex',
@@ -18,14 +24,8 @@ export const styles = StyleSheet.create({
         padding: 15,
         width: '100%',
     },
-    cardText: {
+    text: {
         color: '#c1c2c5',
-    },
-    root: {
-        alignItems: 'center',
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingHorizontal: 30,
+        marginBottom: 10,
     },
 })

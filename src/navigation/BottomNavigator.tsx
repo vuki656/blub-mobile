@@ -15,6 +15,7 @@ import type { RootTabParamList } from '../shared/types'
 
 const BottomTabNavigatorComponent = createBottomTabNavigator<RootTabParamList>()
 
+// TODO: make header background dark so text doesn't act ugly with it
 export const BottomTabNavigator = () => {
     const colorScheme = useColorScheme()
 
@@ -22,6 +23,7 @@ export const BottomTabNavigator = () => {
         <BottomTabNavigatorComponent.Navigator
             initialRouteName="Home"
             screenOptions={{
+                headerShown: false,
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
         >
