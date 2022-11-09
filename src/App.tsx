@@ -1,8 +1,10 @@
+import { ApolloProvider } from '@apollo/client'
 import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { Navigation } from './navigation'
+import { client } from './shared/apollo'
 import {
     useCachedResources,
     useColorScheme,
@@ -24,4 +26,10 @@ export default function App() {
     )
 }
 
-registerRootComponent(App)
+const AppWithApollo = (
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>
+)
+
+registerRootComponent(() => AppWithApollo)

@@ -1,2 +1,2 @@
 export * from './CreatePostScreen'
-export * from './HomeScreen'
+export * from './Home'

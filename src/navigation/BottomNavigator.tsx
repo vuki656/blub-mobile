@@ -7,7 +7,7 @@ import {
 } from '../components/Icons'
 import {
     CreatePostScreen,
-    HomeScreen,
+    Home,
 } from '../screens'
 import { Colors } from '../shared/constants'
 import { useColorScheme } from '../shared/hooks'
@@ -26,7 +26,7 @@ export const BottomTabNavigator = () => {
             }}
         >
             <BottomTabNavigatorComponent.Screen
-                component={HomeScreen}
+                component={Home}
                 name="Home"
                 options={() => ({
                     tabBarIcon: (props) => {

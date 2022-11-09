@@ -1,0 +1,14 @@
+query GetPosts($args: PostsArgs!) {
+    posts(args: $args) {
+        list {
+            ...PostPayload
+        }
+        total
+    }
+}
+
+query GetPost($args: PostArgs!) {
+    post(args: $args) {
+        ...PostPayload
+    }
+}

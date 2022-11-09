@@ -22,6 +22,9 @@ dist/
 # Eslint
 .eslintcache
 
+# Generated
+*generated.*
+
 # Misc
 npm-debug.*
 *.jks
