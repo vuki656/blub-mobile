@@ -2,14 +2,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 
 import {
+    ListIcon,
+    PencilIcon,
+} from '../components/Icons'
+import {
     CreatePostScreen,
     HomeScreen,
 } from '../screens'
 import { Colors } from '../shared/constants'
 import { useColorScheme } from '../shared/hooks'
 import type { RootTabParamList } from '../shared/types'
-
-import { TabBarIcon } from './TabBarIcon'
 
 const BottomTabNavigatorComponent = createBottomTabNavigator<RootTabParamList>()
 
@@ -27,12 +29,11 @@ export const BottomTabNavigator = () => {
                 component={HomeScreen}
                 name="Home"
                 options={() => ({
-                    tabBarIcon: ({ color }) => (
-                        <TabBarIcon
-                            color={color}
-                            name="list"
-                        />
-                    ),
+                    tabBarIcon: (props) => {
+                        return (
+                            <ListIcon color={props.color} />
+                        )
+                    },
                     title: 'Home',
                 })}
             />
@@ -40,12 +41,11 @@ export const BottomTabNavigator = () => {
                 component={CreatePostScreen}
                 name="CreatePost"
                 options={{
-                    tabBarIcon: ({ color }) => (
-                        <TabBarIcon
-                            color={color}
-                            name="pencil"
-                        />
-                    ),
+                    tabBarIcon: (props) => {
+                        return (
+                            <PencilIcon color={props.color} />
+                        )
+                    },
                     title: 'Post',
                 }}
             />

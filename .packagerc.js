@@ -45,8 +45,6 @@ const config = {
                 'typescript',
             ],
         ],
-        'no-tilde-version-dependencies': 'error',
-        'no-tilde-version-devDependencies': 'error',
         'optionalDependencies-type': 'error',
         'os-type': 'error',
         'peerDependencies-type': 'error',
