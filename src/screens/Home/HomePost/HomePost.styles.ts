@@ -2,14 +2,34 @@ import { StyleSheet } from 'react-native'
 
 // TODO: extract colors to shared place
 export const styles = StyleSheet.create({
-    button: {
+    buttonComment: {
+        flex: 1,
+        marginRight: 10,
+    },
+    buttonDislike: {
+        flex: 1,
+        marginBottom: 5,
+    },
+    buttonLike: {
+        flex: 1,
         marginBottom: 10,
+        marginRight: 10,
+    },
+    buttonShare: {
+        flex: 1,
     },
     buttonVoteCount: {
         marginRight: 5,
     },
     buttons: {
+        backgroundColor: '#1a1b1e',
         display: 'flex',
+        gridGap: 100,
+    },
+    buttonRow: {
+        backgroundColor: '#1a1b1e',
+        display: 'flex',
+        flexDirection: 'row',
     },
     date: {
         color: '#909296',

@@ -3994,9 +3994,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rimac-technology/eslint-config@npm:^31.1.3":
-  version: 31.1.3
-  resolution: "@rimac-technology/eslint-config@npm:31.1.3"
+"@rimac-technology/eslint-config@npm:^31.1.4":
+  version: 31.1.4
+  resolution: "@rimac-technology/eslint-config@npm:31.1.4"
   dependencies:
     "@rimac-technology/eslint-plugin": ^1.4.0
     "@typescript-eslint/eslint-plugin": ^5.36.2
@@ -4023,7 +4023,7 @@ __metadata:
     eslint-plugin-workspaces: ^0.7.0
   peerDependencies:
     eslint: ^8
-  checksum: 71630d6de3ddcc3ecbb79a386e73282713cddd2790013d36f53d68efd023a6325192b14bccfbcb4cc6b0198539b2a1079e4a3d5d14f2d1c4e5e6c9388d5f6fbd
+  checksum: 5e3618a13e453de21074213352e46680b6c3efb152895abe0519456e7f852c95622f7118378d251112a909374832f8d7d867dee55939f86ec91039269d1bf6aa
   languageName: node
   linkType: hard
 
@@ -5441,7 +5441,7 @@ __metadata:
     "@react-navigation/bottom-tabs": ^6.4.0
     "@react-navigation/native": ^6.0.13
     "@react-navigation/native-stack": ^6.9.1
-    "@rimac-technology/eslint-config": ^31.1.3
+    "@rimac-technology/eslint-config": ^31.1.4
     "@types/eslint": ^8.4.10
     "@types/prettier": ^2.7.1
     "@types/react": ~18.0.25

@@ -34,31 +34,35 @@ export const HomePost = (props: HomePostProps) => {
                 {post.text}
             </Text>
             <View style={styles.buttons}>
-                <Button style={styles.button}>
-                    <Text style={styles.buttonVoteCount}>
-                        {positiveVotes.length}
-                    </Text>
-                    <Text>
-                        Like
-                    </Text>
-                </Button>
-                <Button style={styles.button}>
-                    <Text style={styles.buttonVoteCount}>
-                        {negativeVotes.length}
-                    </Text>
-                    <Text>
-                        Disklike
-                    </Text>
-                </Button>
-                <Button style={styles.button}>
-                    <Text>
-                        Comment
-                    </Text>
-                </Button>
-                <Button style={styles.button}>
-                    {/* TODO: fix color so its not hard-coded */}
-                    <ShareIcon color="white" />
-                </Button>
+                <View style={styles.buttonRow}>
+                    <Button style={styles.buttonLike}>
+                        <Text style={styles.buttonVoteCount}>
+                            {positiveVotes.length}
+                        </Text>
+                        <Text>
+                            Like
+                        </Text>
+                    </Button>
+                    <Button style={styles.buttonDislike}>
+                        <Text style={styles.buttonVoteCount}>
+                            {negativeVotes.length}
+                        </Text>
+                        <Text>
+                            Dislike
+                        </Text>
+                    </Button>
+                </View>
+                <View style={styles.buttonRow}>
+                    <Button style={styles.buttonComment}>
+                        <Text>
+                            Comment
+                        </Text>
+                    </Button>
+                    <Button style={styles.buttonShare}>
+                        {/* TODO: fix color so its not hard-coded */}
+                        <ShareIcon color="white" />
+                    </Button>
+                </View>
             </View>
         </View>
     )

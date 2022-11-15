@@ -11,10 +11,10 @@
         "dev": "expo start",
         "ios": "expo start --ios",
         "lint": "yarn lint:prettier && yarn lint:package-json && yarn lint:cspell && yarn lint:eslint",
+        "lint:cspell": "cspell --no-progress --no-summary '**'",
         "lint:eslint": "eslint ./src/**/*.{js,ts,tsx} --quiet --cache --cache-strategy content --cache-location './.eslintcache/'",
         "lint:package-json": "npmPkgJsonLint --configFile ./.packagerc.js .",
         "lint:prettier": "prettier --loglevel warn --no-editorconfig --no-error-on-unmatched-pattern --check \"./**/*{yaml,yml,json,md,gql}\" ",
-        "lint:cspell": "cspell --no-progress --no-summary '**'",
         "test": "jest --watchAll"
     },
     "dependencies": {
@@ -50,7 +50,7 @@
         "@graphql-codegen/typescript": "^2.8.0",
         "@graphql-codegen/typescript-operations": "2.5.5",
         "@graphql-codegen/typescript-react-apollo": "^3.3.5",
-        "@rimac-technology/eslint-config": "^31.1.3",
+        "@rimac-technology/eslint-config": "^31.1.4",
         "@types/eslint": "^8.4.10",
         "@types/prettier": "^2.7.1",
         "@types/react": "~18.0.25",
