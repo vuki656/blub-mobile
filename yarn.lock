@@ -1955,6 +1955,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/prebuild-config@npm:5.0.7":
+  version: 5.0.7
+  resolution: "@expo/prebuild-config@npm:5.0.7"
+  dependencies:
+    "@expo/config": ~7.0.2
+    "@expo/config-plugins": ~5.0.3
+    "@expo/config-types": ^47.0.0
+    "@expo/image-utils": 0.3.22
+    "@expo/json-file": 8.2.36
+    debug: ^4.3.1
+    fs-extra: ^9.0.0
+    resolve-from: ^5.0.0
+    semver: 7.3.2
+    xml2js: 0.4.23
+  peerDependencies:
+    expo-modules-autolinking: ">=0.8.1"
+  checksum: f5c2d9c6983f5f40b785a947640fd1de76da04e0e998414958b5ec008bfd4afe73774498b92c1206de8a3b107863804226a0d968c65003c1aff9fd73aff1dc45
+  languageName: node
+  linkType: hard
+
 "@expo/rudder-sdk-node@npm:1.1.1":
   version: 1.1.1
   resolution: "@expo/rudder-sdk-node@npm:1.1.1"
@@ -5054,7 +5074,7 @@ __metadata:
     expo-constants: ~14.0.2
     expo-font: ~11.0.1
     expo-linking: ~3.2.3
-    expo-splash-screen: ~0.17.4
+    expo-splash-screen: ~0.17.5
     expo-status-bar: ~1.4.2
     expo-system-ui: ~2.0.1
     graphql: ^16.6.0
@@ -7438,15 +7458,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-splash-screen@npm:~0.17.4":
-  version: 0.17.4
-  resolution: "expo-splash-screen@npm:0.17.4"
+"expo-splash-screen@npm:~0.17.5":
+  version: 0.17.5
+  resolution: "expo-splash-screen@npm:0.17.5"
   dependencies:
     "@expo/configure-splash-screen": ^0.6.0
-    "@expo/prebuild-config": 5.0.6
+    "@expo/prebuild-config": 5.0.7
   peerDependencies:
     expo: "*"
-  checksum: 28b6f5f16502ff8ab57c24fe49bea2ff5c6b2626dbd9b23b54b5c6b0359cdc7d1b03fa059e90df6de492cd99a604c8dbac1aab054d28860c7b026a197ccb189c
+  checksum: 20bee835725b52846be8ea9221fb51829f2d6080784d05fd77bcc68f51f15871bdcc5f845c7230317f044ca94d0b001e81a5e50082404be81b9d16466cd7880c
   languageName: node
   linkType: hard
 
