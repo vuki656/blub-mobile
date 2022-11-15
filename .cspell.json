@@ -1,0 +1,19 @@
+{
+    "useGitignore": true,
+    "cache": {
+        "useCache": true,
+        "cacheLocation": ".cspellcache"
+    },
+    "ignoreWords": [
+        "packagerc",
+        "yarnrc",
+        "codegen",
+        "rimac",
+        "blub",
+        "loglevel",
+        "mobileprovision",
+        "eslintcache",
+        "yarnpkg",
+        "pressable"
+    ]
+}

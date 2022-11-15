@@ -34,3 +34,6 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+
+# Cspell
+.cspellcache
