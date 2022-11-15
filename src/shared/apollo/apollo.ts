@@ -3,7 +3,10 @@ import {
     InMemoryCache,
 } from '@apollo/client'
 
+import { link } from './links'
+
+// TODO: check how to setup cache
 export const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: 'http://192.168.0.15:8080/graphql',
+    link,
 })

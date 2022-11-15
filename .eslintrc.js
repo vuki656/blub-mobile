@@ -6,12 +6,7 @@ module.exports = {
     parserOptions: {
         project: "./tsconfig.json"
     },
-    overrides: [
-        {
-            "files": ["*.styles.ts"],
-            "rules": {
-                "@typescript-eslint/no-magic-numbers": "off",
-            }
-        }
-    ],
+    rules: {
+        "import/no-named-default": "off"
+    }
 }

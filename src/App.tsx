@@ -6,21 +6,27 @@ import {
     Montserrat_600SemiBold,
     Montserrat_700Bold,
 } from '@expo-google-fonts/montserrat'
+import { useAsyncStorage } from '@react-native-async-storage/async-storage'
 import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
+import { useEffect } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { Navigation } from './navigation'
 import { client } from './shared/apollo'
+import { StorageKeys } from './shared/constants'
 import {
     useCachedResources,
     useColorScheme,
 } from './shared/hooks'
+import { uuid } from './shared/utils'
 
 export default function App() {
     const isLoadingComplete = useCachedResources()
     const colorScheme = useColorScheme()
+
+    const { getItem, setItem } = useAsyncStorage(StorageKeys.userId)
 
     let [fontsLoaded] = useFonts({
         Montserrat_300Light,
@@ -28,6 +34,18 @@ export default function App() {
         Montserrat_500Medium,
         Montserrat_600SemiBold,
         Montserrat_700Bold,
+    })
+
+    const setUserId = async () => {
+        const existingUserId = await getItem()
+
+        if (!existingUserId) {
+            void setItem(uuid())
+        }
+    }
+
+    useEffect(() => {
+        void setUserId()
     })
 
     if (!isLoadingComplete || !fontsLoaded) {

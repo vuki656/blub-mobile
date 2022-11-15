@@ -3659,6 +3659,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-async-storage/async-storage@npm:~1.17.3":
+  version: 1.17.11
+  resolution: "@react-native-async-storage/async-storage@npm:1.17.11"
+  dependencies:
+    merge-options: ^3.0.4
+  peerDependencies:
+    react-native: ^0.0.0-0 || 0.60 - 0.71 || 1000.0.0
+  checksum: 691f2b74498160d0b532f673402d8affeecb28b005b1c6d6fa2e7c87f89ab3068177e8e2d2686738306e7592a39c6d7148aa4c426b7e8e149c43a336ad446648
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:^9.2.1":
   version: 9.2.1
   resolution: "@react-native-community/cli-clean@npm:9.2.1"
@@ -5438,6 +5449,7 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.0
     "@graphql-codegen/typescript-operations": 2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@react-native-async-storage/async-storage": ~1.17.3
     "@react-navigation/bottom-tabs": ^6.4.0
     "@react-navigation/native": ^6.0.13
     "@react-navigation/native-stack": ^6.9.1
@@ -5467,6 +5479,7 @@ __metadata:
     react-native-safe-area-context: 4.4.1
     react-native-screens: ~3.18.2
     react-native-svg: 13.4.0
+    react-native-uuid: ^2.0.1
     react-test-renderer: ^18.2.0
     typescript: ^4.8.4
   languageName: unknown
@@ -9718,6 +9731,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
+  languageName: node
+  linkType: hard
+
 "is-plain-obj@npm:^3.0.0":
   version: 3.0.0
   resolution: "is-plain-obj@npm:3.0.0"
@@ -11421,6 +11441,15 @@ __metadata:
     type-fest: ^0.18.0
     yargs-parser: ^20.2.3
   checksum: 99799c47247f4daeee178e3124f6ef6f84bde2ba3f37652865d5d8f8b8adcf9eedfc551dd043e2455cd8206545fd848e269c0c5ab6b594680a0ad4d3617c9639
+  languageName: node
+  linkType: hard
+
+"merge-options@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "merge-options@npm:3.0.4"
+  dependencies:
+    is-plain-obj: ^2.1.0
+  checksum: d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
   languageName: node
   linkType: hard
 
@@ -13349,6 +13378,13 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: e630c057d6a0947c4d729538f643585a1fd9380975c1cf9adffad7647822b35219a9e1e60407f422b2b70592ed7f7e8766fab15df74f9cfce0b1c8a1c3544676
+  languageName: node
+  linkType: hard
+
+"react-native-uuid@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "react-native-uuid@npm:2.0.1"
+  checksum: 2fae6e2ee6cef108a31ae9d5be661a1947a86f4c6a812c7386b57d970861b364dc887bc4fe3225227aeea7925ccdc24d4478ff30193305abc283eb4a30ee2138
   languageName: node
   linkType: hard
 

@@ -22,7 +22,7 @@ export const useCachedResources = () => {
             }
         }
 
-        void loadResourcesAndDataAsync()
+        loadResourcesAndDataAsync()
     }, [])
 
     return isLoadingComplete

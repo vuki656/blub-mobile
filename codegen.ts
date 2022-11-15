@@ -12,7 +12,8 @@ const config: CodegenConfig = {
     generates: {
         './src/graphql/types.generated.ts': {
             config: {
-                withHooks: true
+                withHooks: true,
+                maybeValue: 'T | null' // TODO: this doesn't work fix it, fuck me
             },
             plugins: [
                 'typescript',
