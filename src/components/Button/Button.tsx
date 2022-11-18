@@ -31,7 +31,7 @@ export const Button = (props: ButtonProps) => {
                     borderRadius: 4,
                     display: 'flex',
                     flexDirection: 'row',
-                    height: 30,
+                    height: 35,
                     justifyContent: 'center',
                     padding: 5,
                 },
