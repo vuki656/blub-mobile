@@ -96,7 +96,7 @@ export const Home = () => {
                     <Text
                         style={[
                             styles.paginationButtonText,
-                            [previousButtonDisabled ? styles.paginationDisabledButtonText : null],
+                            previousButtonDisabled ? styles.paginationDisabledButtonText : null,
                         ]}
                     >
                         Previous

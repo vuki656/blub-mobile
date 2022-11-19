@@ -14,6 +14,7 @@ export const useCachedResources = () => {
                 void SplashScreen.preventAutoHideAsync()
             } catch (error) {
                 // We might want to provide this error information to an error reporting service
+                // eslint-disable-next-line no-console
                 console.warn(error)
             } finally {
                 setLoadingComplete(true)

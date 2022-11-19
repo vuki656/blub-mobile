@@ -5441,6 +5441,7 @@ __metadata:
     "@apollo/client": ^3.7.1
     "@babel/core": ^7.20.2
     "@expo-google-fonts/montserrat": ^0.2.2
+    "@expo/config-types": ^47.0.0
     "@expo/vector-icons": ^13.0.0
     "@graphql-codegen/cli": ^2.13.8
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -5462,6 +5463,7 @@ __metadata:
     dayjs: ^1.11.6
     eslint: ^8.27.0
     expo: ^47.0.3
+    expo-constants: ^14.0.2
     expo-font: ~11.0.1
     expo-linking: ~3.2.3
     expo-splash-screen: ~0.17.5
@@ -7927,7 +7929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-constants@npm:~14.0.0, expo-constants@npm:~14.0.2":
+"expo-constants@npm:^14.0.2, expo-constants@npm:~14.0.0, expo-constants@npm:~14.0.2":
   version: 14.0.2
   resolution: "expo-constants@npm:14.0.2"
   dependencies:
