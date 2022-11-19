@@ -1,17 +1,21 @@
 import React from 'react'
-import { ScrollView } from 'react-native'
+import {
+    ActivityIndicator,
+    ScrollView,
+} from 'react-native'
 
 import { View } from '../../components'
 import {
     PostsSortEnum,
     useGetPostsQuery,
 } from '../../graphql/types.generated'
+import { Colors } from '../../shared/constants'
 
 import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
 export const Home = () => {
-    const { data } = useGetPostsQuery({
+    const { data, loading } = useGetPostsQuery({
         variables: {
             args: {
                 skip: 0,
@@ -19,6 +23,17 @@ export const Home = () => {
             },
         },
     })
+
+    if (loading) {
+        return (
+            <View style={styles.root}>
+                <ActivityIndicator
+                    color={Colors.blue}
+                    size="large"
+                />
+            </View>
+        )
+    }
 
     return (
         <ScrollView>
