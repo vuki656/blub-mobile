@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { StorageKeys } from '../constants'
 
 const httpLink = createHttpLink({
-    uri: 'http://192.168.0.15:8080/graphql', // TODO: env variable
+    uri: 'https://blub-api-mm3gj.ondigitalocean.app/', // TODO: env variable
 })
 
 const authLink = setContext(async () => {

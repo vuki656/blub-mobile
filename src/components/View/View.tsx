@@ -1,28 +1,21 @@
 import { View as DefaultView } from 'react-native'
 
-import { useThemeColor } from '../../shared/hooks'
+import { Colors } from '../../shared/constants'
 
 import type { ViewProps } from './View.types'
 
 export const View = (props: ViewProps) => {
     const {
-        darkColor,
-        lightColor,
         style,
         ...otherProps
     } = props
 
-    const backgroundColor = useThemeColor({
-        colorScheme: {
-            dark: darkColor,
-            light: lightColor,
-        },
-        surfaceName: 'background',
-    })
-
     return (
         <DefaultView
-            style={[{ backgroundColor }, style]}
+            style={[
+                { backgroundColor: Colors.background },
+                style,
+            ]}
             {...otherProps}
         />
     )

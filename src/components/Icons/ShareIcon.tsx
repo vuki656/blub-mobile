@@ -5,7 +5,6 @@ import Svg, {
     Path,
 } from 'react-native-svg'
 
-// TODO: how to resize with a nice API, if height and width are set it crops it weird
 export const ShareIcon = (props: SvgProps) => (
     <Svg
         fill="none"

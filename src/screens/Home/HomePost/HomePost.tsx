@@ -18,7 +18,6 @@ import { formatDate } from '../../../shared/date'
 import { styles } from './HomePost.styles'
 import type { HomePostProps } from './HomePost.types'
 
-// TODO: use only dark mode and create a ticket for light mode
 export const HomePost = (props: HomePostProps) => {
     const { post } = props
 
@@ -78,12 +77,11 @@ export const HomePost = (props: HomePostProps) => {
             <Text style={styles.text}>
                 {currentPost.text}
             </Text>
-            <View style={styles.buttons}>
+            <View>
                 <View style={styles.buttonRow}>
                     <Button
                         onPress={onVote(VoteTypeEnum.Positive)}
                         style={[
-                            styles.button,
                             styles.buttonLike,
                             currentPost.userVote === VoteTypeEnum.Positive ? styles.buttonActive : null,
                         ]}
@@ -91,7 +89,7 @@ export const HomePost = (props: HomePostProps) => {
                         <Text
                             style={[
                                 styles.buttonText,
-                                styles.buttonVoteCount,
+                                styles.voteCountText,
                             ]}
                         >
                             {positiveVotes.length}
@@ -103,7 +101,6 @@ export const HomePost = (props: HomePostProps) => {
                     <Button
                         onPress={onVote(VoteTypeEnum.Negative)}
                         style={[
-                            styles.button,
                             styles.buttonDislike,
                             currentPost.userVote === VoteTypeEnum.Negative ? styles.buttonActive : null,
                         ]}
@@ -111,7 +108,7 @@ export const HomePost = (props: HomePostProps) => {
                         <Text
                             style={[
                                 styles.buttonText,
-                                styles.buttonVoteCount,
+                                styles.voteCountText,
                             ]}
                         >
                             {negativeVotes.length}
@@ -123,18 +120,14 @@ export const HomePost = (props: HomePostProps) => {
                 </View>
                 <View style={styles.buttonRow}>
                     <Button
-                        style={[
-                            styles.button,
-                            styles.buttonComment,
-                        ]}
+                        style={styles.buttonComment}
                     >
                         <Text style={styles.buttonText}>
                             Comment
                         </Text>
                     </Button>
-                    <Button style={styles.button}>
-                        {/* TODO: fix color so its not hard-coded */}
-                        <ShareIcon color="black" />
+                    <Button style={styles.buttonShare}>
+                        <ShareIcon color="white" />
                     </Button>
                 </View>
             </View>

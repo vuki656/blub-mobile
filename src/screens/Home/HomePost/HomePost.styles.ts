@@ -5,47 +5,36 @@ import {
     Fonts,
 } from '../../../shared/constants'
 
-// TODO: extract colors to shared place
 export const styles = StyleSheet.create({
-    button: {
-        borderColor: '#ced4da',
-        borderWidth: 1,
-        color: 'black',
-        flex: 1,
-    },
     buttonActive: {
         borderColor: Colors.blue,
         borderWidth: 1,
     },
     buttonComment: {
-        marginRight: 10,
+        marginRight: 5,
+        marginTop: 5,
     },
     buttonDislike: {
         marginBottom: 5,
+        marginLeft: 5,
     },
     buttonLike: {
-        marginBottom: 10,
-        marginRight: 10,
+        marginBottom: 5,
+        marginRight: 5,
     },
     buttonRow: {
-        backgroundColor: 'transparent',
         display: 'flex',
         flexDirection: 'row',
+    },
+    buttonShare: {
+        marginLeft: 5,
+        marginTop: 5,
     },
     buttonText: {
         fontFamily: Fonts.bold,
     },
-    buttonVoteCount: {
-        marginRight: 5,
-    },
-    buttons: {
-        backgroundColor: 'transparent',
-        display: 'flex',
-        marginTop: 5,
-    },
     date: {
-        color: '#909296',
-        marginBottom: 15,
+        color: Colors.text.light,
     },
     root: {
         display: 'flex',
@@ -55,8 +44,11 @@ export const styles = StyleSheet.create({
         width: '100%',
     },
     text: {
-        color: '#000000',
+        color: Colors.text.default,
         fontSize: 15,
         marginBottom: 10,
+    },
+    voteCountText: {
+        marginRight: 5,
     },
 })

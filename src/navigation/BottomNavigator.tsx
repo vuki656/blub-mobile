@@ -10,21 +10,18 @@ import {
     Home,
 } from '../screens'
 import { Colors } from '../shared/constants'
-import { useColorScheme } from '../shared/hooks'
 import type { RootTabParamList } from '../shared/types'
 
 const BottomTabNavigatorComponent = createBottomTabNavigator<RootTabParamList>()
 
-// TODO: make header background dark so text doesn't act ugly with it
+// TODO: make header background dark so text doesn't act ugly with it, fixed with app header
 export const BottomTabNavigator = () => {
-    const colorScheme = useColorScheme()
-
     return (
         <BottomTabNavigatorComponent.Navigator
             initialRouteName="Home"
             screenOptions={{
                 headerShown: false,
-                tabBarActiveTintColor: Colors[colorScheme].tint,
+                tabBarActiveTintColor: Colors.text.default,
             }}
         >
             <BottomTabNavigatorComponent.Screen

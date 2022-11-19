@@ -1,35 +1,28 @@
 import React from 'react'
 import { Pressable } from 'react-native'
 
-import { useThemeColor } from '../../shared/hooks'
+import { Colors } from '../../shared/constants'
 
 import type { ButtonProps } from './Button.types'
 
 export const Button = (props: ButtonProps) => {
     const {
         children,
-        darkColor,
-        lightColor,
         style,
         ...other
     } = props
-
-    const color = useThemeColor({
-        colorScheme: {
-            dark: darkColor,
-            light: lightColor,
-        },
-        surfaceName: 'buttonBackground',
-    })
 
     return (
         <Pressable
             style={[
                 {
                     alignItems: 'center',
-                    backgroundColor: color,
+                    backgroundColor: Colors.background.button,
+                    borderColor: Colors.border,
                     borderRadius: 4,
+                    borderWidth: 1,
                     display: 'flex',
+                    flex: 1,
                     flexDirection: 'row',
                     height: 35,
                     justifyContent: 'center',

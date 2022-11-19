@@ -16,15 +16,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Navigation } from './navigation'
 import { client } from './shared/apollo'
 import { StorageKeys } from './shared/constants'
-import {
-    useCachedResources,
-    useColorScheme,
-} from './shared/hooks'
+import { useCachedResources } from './shared/hooks'
 import { uuid } from './shared/utils'
 
 export default function App() {
     const isLoadingComplete = useCachedResources()
-    const colorScheme = useColorScheme()
 
     const { getItem, setItem } = useAsyncStorage(StorageKeys.userId)
 
@@ -54,7 +50,7 @@ export default function App() {
 
     return (
         <SafeAreaProvider>
-            <Navigation colorScheme={colorScheme} />
+            <Navigation colorScheme="dark" />
             <StatusBar />
         </SafeAreaProvider>
     )
