@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     ActivityIndicator,
+    RefreshControl,
     ScrollView,
 } from 'react-native'
 
@@ -15,7 +16,8 @@ import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
 export const Home = () => {
-    const { data, loading } = useGetPostsQuery({
+    const { data, loading, refetch } = useGetPostsQuery({
+        nextFetchPolicy: 'network-only',
         variables: {
             args: {
                 skip: 0,
@@ -36,7 +38,14 @@ export const Home = () => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView
+            refreshControl={(
+                <RefreshControl
+                    onRefresh={refetch}
+                    refreshing={loading}
+                />
+            )}
+        >
             <View style={styles.root}>
                 {data?.posts.list.map((post) => {
                     return (
