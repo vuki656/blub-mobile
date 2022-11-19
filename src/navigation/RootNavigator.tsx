@@ -4,6 +4,7 @@ import React from 'react'
 import type { RootStackParamList } from '../shared/types'
 
 import { BottomTabNavigator } from './BottomNavigator'
+import { Logo } from './Logo'
 
 const StackNavigatorComponent = createNativeStackNavigator<RootStackParamList>()
 
@@ -13,7 +14,11 @@ export const RootNavigator = () => {
             <StackNavigatorComponent.Screen
                 component={BottomTabNavigator}
                 name="Root"
-                options={{ headerShown: false }}
+                options={{
+                    headerTitle: () => {
+                        return <Logo />
+                    },
+                }}
             />
         </StackNavigatorComponent.Navigator>
     )

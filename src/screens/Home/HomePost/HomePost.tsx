@@ -19,6 +19,8 @@ import { formatDate } from '../../../shared/date'
 import { styles } from './HomePost.styles'
 import type { HomePostProps } from './HomePost.types'
 
+const SHARE_TEXT_CUTOFF_CHARACTER = 40
+
 export const HomePost = (props: HomePostProps) => {
     const { post } = props
 
@@ -64,7 +66,7 @@ export const HomePost = (props: HomePostProps) => {
 
     const onShare = () => {
         void Share.share({
-            message: `${currentPost.text.slice(0, 40)}...`,
+            message: `${currentPost.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}...`,
             title: 'Blubtalk | What\'s on your mind?',
             url: 'www.google.com', // TODO: implement once single view is done
         })
