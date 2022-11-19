@@ -1,11 +1,12 @@
 import React from 'react'
 import type { SvgProps } from 'react-native-svg'
 import Svg, {
+    Circle,
     Path,
-    Rect,
 } from 'react-native-svg'
 
-export const ListIcon = (props: SvgProps) => (
+// TODO: size can prob be adjusted with viewBox
+export const ClockIcon = (props: SvgProps) => (
     <Svg
         color="white"
         fill="none"
@@ -21,13 +22,11 @@ export const ListIcon = (props: SvgProps) => (
             d="M0 0h24v24H0z"
             stroke="none"
         />
-        <Rect
-            height={18}
-            rx={2}
-            width={14}
-            x={5}
-            y={3}
+        <Circle
+            cx={12}
+            cy={12}
+            r={9}
         />
-        <Path d="M9 7h6M9 11h6M9 15h4" />
+        <Path d="m12 12 3 2M12 7v5" />
     </Svg>
 )

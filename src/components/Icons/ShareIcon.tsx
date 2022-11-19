@@ -7,6 +7,7 @@ import Svg, {
 
 export const ShareIcon = (props: SvgProps) => (
     <Svg
+        color="white"
         fill="none"
         height={24}
         stroke="currentColor"

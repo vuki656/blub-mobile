@@ -11,6 +11,10 @@ import {
     View,
 } from '../../components'
 import {
+    ClockIcon,
+    StarIcon,
+} from '../../components/Icons'
+import {
     PostsSortEnum,
     useGetPostsQuery,
 } from '../../graphql/types.generated'
@@ -20,9 +24,14 @@ import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
 const PAGINATED_POST_LIST_AMOUNT = 20
+const SORT_BY_NEW_DAYS_AMOUNT = 100_000
+const DEFAULT_POPULAR_DAYS_SORT = 7
 
+// TODO: clean up constants naming
 export const Home = () => {
     const [skipAmount, setSkipAmount] = React.useState(0)
+    const [sortDays, setSortDays] = React.useState<number | null>(null)
+    const [sortType, setSortType] = React.useState(PostsSortEnum.New)
 
     const scrollViewRef = useRef<ScrollView>(null)
 
@@ -35,8 +44,9 @@ export const Home = () => {
         },
         variables: {
             args: {
+                days: sortDays,
                 skip: skipAmount,
-                sort: PostsSortEnum.New,
+                sort: sortType,
             },
         },
     })
@@ -52,6 +62,10 @@ export const Home = () => {
         )
     }
 
+    const resetPagination = () => {
+        setSkipAmount(0)
+    }
+
     const onNext = () => {
         setSkipAmount((currentSkipAmount) => {
             return currentSkipAmount + PAGINATED_POST_LIST_AMOUNT
@@ -62,6 +76,26 @@ export const Home = () => {
         setSkipAmount((currentSkipAmount) => {
             return currentSkipAmount - PAGINATED_POST_LIST_AMOUNT
         })
+    }
+
+    const onNewPress = () => {
+        setSortType(PostsSortEnum.New)
+
+        setSortDays(null)
+        
+        resetPagination()
+    }
+
+    const onPopularPress = () => {
+        setSortType(PostsSortEnum.Popular)
+
+        setSortDays(DEFAULT_POPULAR_DAYS_SORT)
+    }
+
+    const onDaysSortPress = (days: number) => {
+        return () => {
+            setSortDays(days)
+        }
     }
 
     const previousButtonDisabled = skipAmount === 0
@@ -77,6 +111,39 @@ export const Home = () => {
                 />
             )}
         >
+            <View style={styles.filterButtons}>
+                <Button style={styles.filterButton} onPress={onNewPress}>
+                    <ClockIcon />
+                    <Text>
+                        New
+                    </Text>
+                </Button>
+                <Button style={styles.filterButton} onPress={onPopularPress}>
+                    <StarIcon />
+                    <Text>
+                        Popular
+                    </Text>
+                </Button>
+            </View>
+            {sortDays === null ? null : (
+                <View style={styles.filterPopularCategoriesButtons}>
+                    <Button onPress={onDaysSortPress(DEFAULT_POPULAR_DAYS_SORT)}>
+                        <Text>
+                            {DEFAULT_POPULAR_DAYS_SORT} Days
+                        </Text>
+                    </Button>
+                    <Button onPress={onDaysSortPress(30)}>
+                        <Text>
+                            30 Days
+                        </Text>
+                    </Button>
+                    <Button onPress={onDaysSortPress(100_000)}>
+                        <Text>
+                            All Time
+                        </Text>
+                    </Button>
+                </View>
+            )}
             <View style={styles.root}>
                 {data?.posts.list.map((post) => {
                     return (

@@ -4,6 +4,7 @@ import Svg, { Path } from 'react-native-svg'
 
 export const ChatBubbleIcon = (props: SvgProps) => (
     <Svg
+        color="white"
         fill="none"
         height={24}
         stroke="currentColor"

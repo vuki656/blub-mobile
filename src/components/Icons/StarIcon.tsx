@@ -1,11 +1,8 @@
 import React from 'react'
 import type { SvgProps } from 'react-native-svg'
-import Svg, {
-    Path,
-    Rect,
-} from 'react-native-svg'
+import Svg, { Path } from 'react-native-svg'
 
-export const ListIcon = (props: SvgProps) => (
+export const StarIcon = (props: SvgProps) => (
     <Svg
         color="white"
         fill="none"
@@ -21,13 +18,6 @@ export const ListIcon = (props: SvgProps) => (
             d="M0 0h24v24H0z"
             stroke="none"
         />
-        <Rect
-            height={18}
-            rx={2}
-            width={14}
-            x={5}
-            y={3}
-        />
-        <Path d="M9 7h6M9 11h6M9 15h4" />
+        <Path d="m12 17.75-6.172 3.245 1.179-6.873-5-4.867 6.9-1 3.086-6.253 3.086 6.253 6.9 1-5 4.867 1.179 6.873z" />
     </Svg>
 )

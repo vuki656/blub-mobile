@@ -4,6 +4,7 @@ import Svg, { Path } from 'react-native-svg'
 
 export const PencilIcon = (props: SvgProps) => (
     <Svg
+        color="white"
         fill="none"
         height={24}
         stroke="currentColor"

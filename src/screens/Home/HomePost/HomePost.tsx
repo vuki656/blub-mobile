@@ -141,7 +141,7 @@ export const HomePost = (props: HomePostProps) => {
                         onPress={onShare}
                         style={styles.buttonShare}
                     >
-                        <ShareIcon color="white" />
+                        <ShareIcon />
                     </Button>
                 </View>
             </View>
