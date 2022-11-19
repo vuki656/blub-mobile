@@ -22,7 +22,7 @@ import type { HomePostProps } from './HomePost.types'
 const SHARE_TEXT_CUTOFF_CHARACTER = 40
 
 export const HomePost = (props: HomePostProps) => {
-    const { post } = props
+    const { post, style } = props
 
     const [currentPost, setCurrentPost] = React.useState(post)
 
@@ -81,21 +81,24 @@ export const HomePost = (props: HomePostProps) => {
     })
 
     return (
-        <Panel style={styles.root}>
+        <Panel style={[styles.root, style]}>
             <Text style={styles.date}>
                 {formatDate(currentPost.createdAt)}
             </Text>
             <Text style={styles.text}>
                 {currentPost.text}
             </Text>
-            <View style={styles.buttons}>
-                <View style={styles.buttonRow}>
+            <View
+                gap={{ vertical: 10 }}
+                style={styles.buttons}
+            >
+                <View
+                    gap={{ horizontal: 10 }}
+                    style={styles.buttonRow}
+                >
                     <Button
                         onPress={onVote(VoteTypeEnum.Positive)}
-                        style={[
-                            styles.buttonLike,
-                            currentPost.userVote === VoteTypeEnum.Positive ? styles.buttonActive : null,
-                        ]}
+                        style={currentPost.userVote === VoteTypeEnum.Positive ? styles.buttonActive : null}
                     >
                         <Text
                             style={[
@@ -112,7 +115,6 @@ export const HomePost = (props: HomePostProps) => {
                     <Button
                         onPress={onVote(VoteTypeEnum.Negative)}
                         style={[
-                            styles.buttonDislike,
                             currentPost.userVote === VoteTypeEnum.Negative ? styles.buttonActive : null,
                         ]}
                     >
@@ -129,18 +131,16 @@ export const HomePost = (props: HomePostProps) => {
                         </Text>
                     </Button>
                 </View>
-                <View style={styles.buttonRow}>
-                    <Button
-                        style={styles.buttonComment}
-                    >
+                <View
+                    gap={{ horizontal: 10 }}
+                    style={styles.buttonRow}
+                >
+                    <Button>
                         <Text style={styles.buttonText}>
                             Comment
                         </Text>
                     </Button>
-                    <Button
-                        onPress={onShare}
-                        style={styles.buttonShare}
-                    >
+                    <Button onPress={onShare}>
                         <ShareIcon />
                     </Button>
                 </View>

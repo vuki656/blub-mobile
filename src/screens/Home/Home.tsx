@@ -53,7 +53,7 @@ export const Home = () => {
 
     if (loading) {
         return (
-            <View style={styles.root}>
+            <View style={styles.posts}>
                 <ActivityIndicator
                     color={Colors.blue}
                     size="large"
@@ -82,7 +82,7 @@ export const Home = () => {
         setSortType(PostsSortEnum.New)
 
         setSortDays(null)
-        
+
         resetPagination()
     }
 
@@ -110,15 +110,25 @@ export const Home = () => {
                     refreshing={loading}
                 />
             )}
+            style={styles.root}
         >
-            <View style={styles.filterButtons}>
-                <Button style={styles.filterButton} onPress={onNewPress}>
+            <View
+                gap={{ horizontal: 10 }}
+                style={styles.filterButtons}
+            >
+                <Button
+                    onPress={onNewPress}
+                    style={styles.filterButton}
+                >
                     <ClockIcon />
                     <Text>
                         New
                     </Text>
                 </Button>
-                <Button style={styles.filterButton} onPress={onPopularPress}>
+                <Button
+                    onPress={onPopularPress}
+                    style={styles.filterButton}
+                >
                     <StarIcon />
                     <Text>
                         Popular
@@ -129,7 +139,9 @@ export const Home = () => {
                 <View style={styles.filterPopularCategoriesButtons}>
                     <Button onPress={onDaysSortPress(DEFAULT_POPULAR_DAYS_SORT)}>
                         <Text>
-                            {DEFAULT_POPULAR_DAYS_SORT} Days
+                            {DEFAULT_POPULAR_DAYS_SORT}
+                            {' '}
+                            Days
                         </Text>
                     </Button>
                     <Button onPress={onDaysSortPress(30)}>
@@ -144,7 +156,10 @@ export const Home = () => {
                     </Button>
                 </View>
             )}
-            <View style={styles.root}>
+            <View
+                gap={{ vertical: 15 }}
+                style={styles.posts}
+            >
                 {data?.posts.list.map((post) => {
                     return (
                         <HomePost
@@ -154,11 +169,13 @@ export const Home = () => {
                     )
                 })}
             </View>
-            <View style={styles.paginationButtons}>
+            <View
+                gap={{ horizontal: 10 }}
+                style={styles.paginationButtons}
+            >
                 <Button
                     disabled={previousButtonDisabled}
                     onPress={onPrevious}
-                    style={styles.paginationPreviousButton}
                 >
                     <Text
                         style={[
@@ -172,7 +189,6 @@ export const Home = () => {
                 <Button
                     disabled={nextButtonDisabled}
                     onPress={onNext}
-                    style={styles.paginationNextButton}
                 >
                     <Text
                         style={[

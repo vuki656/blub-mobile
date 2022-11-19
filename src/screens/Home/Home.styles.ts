@@ -8,20 +8,20 @@ import {
 const HORIZONTAL_SPACING = 20
 
 export const styles = StyleSheet.create({
+    filterButton: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    filterButtons: {
+        display: 'flex',
+        flexDirection: 'row',
+        paddingHorizontal: HORIZONTAL_SPACING,
+    },
     filterPopularCategoriesButtons: {
         display: 'flex',
         flexDirection: 'row',
         paddingHorizontal: HORIZONTAL_SPACING,
         paddingVertical: 10,
-    },
-    filterButton: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginHorizontal: HORIZONTAL_SPACING,
-    },
-    filterButtons: {
-        display: 'flex',
-        flexDirection: 'row',
     },
     paginationButtonText: {
         fontFamily: Fonts.bold,
@@ -30,23 +30,19 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         marginHorizontal: HORIZONTAL_SPACING,
+        marginVertical: 10,
     },
     paginationDisabledButtonText: {
         color: Colors.text.disabled,
     },
-    paginationNextButton: {
-        marginBottom: 10,
-        marginLeft: 5,
-    },
-    paginationPreviousButton: {
-        marginRight: 5,
-    },
-    root: {
+    posts: {
         alignItems: 'center',
-        backgroundColor: Colors.background.root,
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         paddingHorizontal: HORIZONTAL_SPACING,
+    },
+    root: {
+        backgroundColor: Colors.background.root,
     },
 })

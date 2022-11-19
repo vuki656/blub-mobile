@@ -10,26 +10,10 @@ export const styles = StyleSheet.create({
         borderColor: Colors.blue,
         borderWidth: 1,
     },
-    buttonComment: {
-        marginRight: 5,
-        marginTop: 5,
-    },
-    buttonDislike: {
-        marginBottom: 5,
-        marginLeft: 5,
-    },
-    buttonLike: {
-        marginBottom: 5,
-        marginRight: 5,
-    },
     buttonRow: {
         backgroundColor: 'transparent',
         display: 'flex',
         flexDirection: 'row',
-    },
-    buttonShare: {
-        marginLeft: 5,
-        marginTop: 5,
     },
     buttonText: {
         fontFamily: Fonts.bold,
@@ -43,7 +27,6 @@ export const styles = StyleSheet.create({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        marginVertical: 10,
         padding: 15,
         width: '100%',
     },
