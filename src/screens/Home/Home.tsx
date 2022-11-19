@@ -10,7 +10,6 @@ import {
 import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
-// TODO: import react everywhere
 // TODO: loading
 // TODO: dummy cards when loading
 // TODO: pull to refresh

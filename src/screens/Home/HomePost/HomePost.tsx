@@ -1,5 +1,5 @@
 import { useAsyncStorage } from '@react-native-async-storage/async-storage'
-import React, { useState } from 'react'
+import React from 'react'
 import { Share } from 'react-native'
 
 import {
@@ -22,7 +22,7 @@ import type { HomePostProps } from './HomePost.types'
 export const HomePost = (props: HomePostProps) => {
     const { post } = props
 
-    const [currentPost, setCurrentPost] = useState(post)
+    const [currentPost, setCurrentPost] = React.useState(post)
 
     const { getItem } = useAsyncStorage(StorageKeys.userId)
 

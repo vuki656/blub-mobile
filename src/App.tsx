@@ -10,7 +10,7 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage'
 import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { Navigation } from './navigation'

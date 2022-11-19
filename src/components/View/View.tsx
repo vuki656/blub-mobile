@@ -1,3 +1,4 @@
+import React from 'react'
 import { View as DefaultView } from 'react-native'
 
 import { Colors } from '../../shared/constants'
@@ -13,7 +14,7 @@ export const View = (props: ViewProps) => {
     return (
         <DefaultView
             style={[
-                { backgroundColor: Colors.background },
+                { backgroundColor: Colors.background.root },
                 style,
             ]}
             {...otherProps}
