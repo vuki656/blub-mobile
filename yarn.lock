@@ -5462,13 +5462,10 @@ __metadata:
     dayjs: ^1.11.6
     eslint: ^8.27.0
     expo: ^47.0.3
-    expo-asset: ~8.6.2
-    expo-constants: ~14.0.2
     expo-font: ~11.0.1
     expo-linking: ~3.2.3
     expo-splash-screen: ~0.17.5
     expo-status-bar: ~1.4.2
-    expo-system-ui: ~2.0.1
     graphql: ^16.6.0
     jest: ^29.3.1
     jest-expo: ^47.0.1
@@ -8036,18 +8033,6 @@ __metadata:
   version: 1.4.2
   resolution: "expo-status-bar@npm:1.4.2"
   checksum: ec61ceb71a4d72592c12f05ca6988a84fea55b77d2cd384d4c6bdb41002b98ef19a5f5af7c327a9e569f0e4754cc75af4d4da6131a9bb781cb4dd8e8bd2f0387
-  languageName: node
-  linkType: hard
-
-"expo-system-ui@npm:~2.0.1":
-  version: 2.0.1
-  resolution: "expo-system-ui@npm:2.0.1"
-  dependencies:
-    "@react-native/normalize-color": ^2.0.0
-    debug: ^4.3.2
-  peerDependencies:
-    expo: "*"
-  checksum: a2f8d165c03cabd3cab66b6b291766aa394ae56294e25b87ba2d3e607edf27f8b3f69c10de112e3f0991d004d79d790858affe980cbf7c72ffb8fc9981d65abd
   languageName: node
   linkType: hard
 
