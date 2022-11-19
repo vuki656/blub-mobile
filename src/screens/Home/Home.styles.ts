@@ -9,6 +9,6 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
     },
 })
