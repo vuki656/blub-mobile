@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
         marginRight: 5,
     },
     buttonRow: {
+        backgroundColor: 'transparent',
         display: 'flex',
         flexDirection: 'row',
     },
@@ -32,6 +33,9 @@ export const styles = StyleSheet.create({
     },
     buttonText: {
         fontFamily: Fonts.bold,
+    },
+    buttons: {
+        backgroundColor: 'transparent',
     },
     date: {
         color: Colors.text.light,
@@ -46,7 +50,8 @@ export const styles = StyleSheet.create({
     text: {
         color: Colors.text.default,
         fontSize: 15,
-        marginBottom: 10,
+        marginBottom: 20,
+        marginTop: 15,
     },
     voteCountText: {
         marginRight: 5,

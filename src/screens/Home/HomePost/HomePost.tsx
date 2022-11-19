@@ -88,7 +88,7 @@ export const HomePost = (props: HomePostProps) => {
             <Text style={styles.text}>
                 {currentPost.text}
             </Text>
-            <View>
+            <View style={styles.buttons}>
                 <View style={styles.buttonRow}>
                     <Button
                         onPress={onVote(VoteTypeEnum.Positive)}

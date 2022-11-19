@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
     ActivityIndicator,
     RefreshControl,
     ScrollView,
 } from 'react-native'
 
-import { View } from '../../components'
+import {
+    Button,
+    Text,
+    View,
+} from '../../components'
 import {
     PostsSortEnum,
     useGetPostsQuery,
@@ -15,12 +19,23 @@ import { Colors } from '../../shared/constants'
 import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
+const PAGINATED_POST_LIST_AMOUNT = 20
+
 export const Home = () => {
+    const [skipAmount, setSkipAmount] = React.useState(0)
+
+    const scrollViewRef = useRef<ScrollView>(null)
+
     const { data, loading, refetch } = useGetPostsQuery({
-        nextFetchPolicy: 'network-only',
+        onCompleted: () => {
+            scrollViewRef.current?.scrollTo({
+                animated: false,
+                y: 0,
+            })
+        },
         variables: {
             args: {
-                skip: 0,
+                skip: skipAmount,
                 sort: PostsSortEnum.New,
             },
         },
@@ -37,8 +52,24 @@ export const Home = () => {
         )
     }
 
+    const onNext = () => {
+        setSkipAmount((currentSkipAmount) => {
+            return currentSkipAmount + PAGINATED_POST_LIST_AMOUNT
+        })
+    }
+
+    const onPrevious = () => {
+        setSkipAmount((currentSkipAmount) => {
+            return currentSkipAmount - PAGINATED_POST_LIST_AMOUNT
+        })
+    }
+
+    const previousButtonDisabled = skipAmount === 0
+    const nextButtonDisabled = (skipAmount + PAGINATED_POST_LIST_AMOUNT) >= Number(data?.posts.total)
+
     return (
         <ScrollView
+            ref={scrollViewRef}
             refreshControl={(
                 <RefreshControl
                     onRefresh={refetch}
@@ -55,6 +86,36 @@ export const Home = () => {
                         />
                     )
                 })}
+            </View>
+            <View style={styles.paginationButtons}>
+                <Button
+                    disabled={previousButtonDisabled}
+                    onPress={onPrevious}
+                    style={styles.paginationPreviousButton}
+                >
+                    <Text
+                        style={[
+                            styles.paginationButtonText,
+                            [previousButtonDisabled ? styles.paginationDisabledButtonText : null],
+                        ]}
+                    >
+                        Previous
+                    </Text>
+                </Button>
+                <Button
+                    disabled={nextButtonDisabled}
+                    onPress={onNext}
+                    style={styles.paginationNextButton}
+                >
+                    <Text
+                        style={[
+                            styles.paginationButtonText,
+                            nextButtonDisabled ? styles.paginationDisabledButtonText : null,
+                        ]}
+                    >
+                        Next
+                    </Text>
+                </Button>
             </View>
         </ScrollView>
     )

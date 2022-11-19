@@ -1,6 +1,7 @@
 export const Colors = {
     background: {
         button: '#25262B',
+        disabled: '#373A40',
         panel: '#1A1B1E',
         root: '#141517',
     },
@@ -13,6 +14,7 @@ export const Colors = {
     tabIconSelected: '#FFFFFF',
     text: {
         default: '#FFFFFF',
+        disabled: '#25262B',
         light: '#909296',
     },
 }
