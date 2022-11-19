@@ -10,10 +10,6 @@ import {
 import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
-// TODO: loading
-// TODO: dummy cards when loading
-// TODO: pull to refresh
-// TODO: pagination
 export const Home = () => {
     const { data } = useGetPostsQuery({
         variables: {
