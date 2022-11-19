@@ -1,5 +1,6 @@
 import { useAsyncStorage } from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react'
+import { Share } from 'react-native'
 
 import {
     Button,
@@ -59,6 +60,14 @@ export const HomePost = (props: HomePostProps) => {
                 }
             })
         }
+    }
+
+    const onShare = () => {
+        void Share.share({
+            message: `${currentPost.text.slice(0, 40)}...`,
+            title: 'Blubtalk | What\'s on your mind?',
+            url: 'www.google.com', // TODO: implement once single view is done
+        })
     }
 
     const positiveVotes = currentPost.votes.filter((vote) => {
@@ -126,7 +135,10 @@ export const HomePost = (props: HomePostProps) => {
                             Comment
                         </Text>
                     </Button>
-                    <Button style={styles.buttonShare}>
+                    <Button
+                        onPress={onShare}
+                        style={styles.buttonShare}
+                    >
                         <ShareIcon color="white" />
                     </Button>
                 </View>

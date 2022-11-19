@@ -14,6 +14,7 @@
         "mobileprovision",
         "eslintcache",
         "yarnpkg",
-        "pressable"
+        "pressable",
+        "blubtalk"
     ]
 }
