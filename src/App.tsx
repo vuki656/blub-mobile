@@ -48,11 +48,10 @@ export default function App() {
         return null
     }
 
-    // TODO: top bar (battery, wifi) renders dark on dark if light mode is on device
     return (
         <SafeAreaProvider>
             <Navigation colorScheme="dark" />
-            <StatusBar />
+            <StatusBar style="light" />
         </SafeAreaProvider>
     )
 }
