@@ -126,7 +126,7 @@ export const Home = () => {
                     style={sortType === PostsSortEnum.New ? styles.activeFilterButton : null}
                 >
                     <View
-                        gap={{ horizontal: 10 }}
+                        gap={{ horizontal: 5 }}
                         style={styles.filterButton}
                     >
                         <ClockIcon />
@@ -140,7 +140,7 @@ export const Home = () => {
                     style={sortType === PostsSortEnum.Popular ? styles.activeFilterButton : null}
                 >
                     <View
-                        gap={{ horizontal: 10 }}
+                        gap={{ horizontal: 5 }}
                         style={styles.filterButton}
                     >
                         <StarIcon />
