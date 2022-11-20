@@ -1,7 +1,7 @@
 import React from 'react'
-import { View as DefaultView } from 'react-native'
 
 import { Colors } from '../../shared/constants'
+import { View as DefaultView } from '../View'
 
 import type { PanelProps } from './Panel.types'
 

@@ -24,10 +24,10 @@ import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
 
 const PAGINATED_POST_LIST_AMOUNT = 20
-const SORT_BY_NEW_DAYS_AMOUNT = 100_000
-const DEFAULT_POPULAR_DAYS_SORT = 7
+const DEFAULT_POPULAR_DAYS_FILTER = 7
+const THIRTY_DAYS_POPULAR_DAYS_FILTER = 30
+const ALL_TIME_POPULAR_DAYS_FILTER = 100_000
 
-// TODO: clean up constants naming
 export const Home = () => {
     const [skipAmount, setSkipAmount] = React.useState(0)
     const [sortDays, setSortDays] = React.useState<number | null>(null)
@@ -89,7 +89,9 @@ export const Home = () => {
     const onPopularPress = () => {
         setSortType(PostsSortEnum.Popular)
 
-        setSortDays(DEFAULT_POPULAR_DAYS_SORT)
+        setSortDays(DEFAULT_POPULAR_DAYS_FILTER)
+
+        resetPagination()
     }
 
     const onDaysSortPress = (days: number) => {
@@ -118,38 +120,61 @@ export const Home = () => {
             >
                 <Button
                     onPress={onNewPress}
-                    style={styles.filterButton}
+                    style={sortType === PostsSortEnum.New ? styles.activeFilterButton : null}
                 >
-                    <ClockIcon />
-                    <Text>
-                        New
-                    </Text>
+                    <View
+                        gap={{ horizontal: 10 }}
+                        style={styles.filterButton}
+                    >
+                        <ClockIcon />
+                        <Text>
+                            New
+                        </Text>
+                    </View>
                 </Button>
                 <Button
                     onPress={onPopularPress}
-                    style={styles.filterButton}
+                    style={sortType === PostsSortEnum.Popular ? styles.activeFilterButton : null}
                 >
-                    <StarIcon />
-                    <Text>
-                        Popular
-                    </Text>
+                    <View
+                        gap={{ horizontal: 10 }}
+                        style={styles.filterButton}
+                    >
+                        <StarIcon />
+                        <Text>
+                            Popular
+                        </Text>
+                    </View>
                 </Button>
             </View>
             {sortDays === null ? null : (
-                <View style={styles.filterPopularCategoriesButtons}>
-                    <Button onPress={onDaysSortPress(DEFAULT_POPULAR_DAYS_SORT)}>
+                <View
+                    gap={{ horizontal: 20 }}
+                    style={styles.filterPopularCategoriesButtons}
+                >
+                    <Button
+                        onPress={onDaysSortPress(DEFAULT_POPULAR_DAYS_FILTER)}
+                        style={sortDays === DEFAULT_POPULAR_DAYS_FILTER ? styles.activeFilterButton : null}
+                    >
                         <Text>
-                            {DEFAULT_POPULAR_DAYS_SORT}
+                            {DEFAULT_POPULAR_DAYS_FILTER}
                             {' '}
                             Days
                         </Text>
                     </Button>
-                    <Button onPress={onDaysSortPress(30)}>
+                    <Button
+                        onPress={onDaysSortPress(THIRTY_DAYS_POPULAR_DAYS_FILTER)}
+                        style={sortDays === THIRTY_DAYS_POPULAR_DAYS_FILTER ? styles.activeFilterButton : null}
+                    >
                         <Text>
-                            30 Days
+                            {THIRTY_DAYS_POPULAR_DAYS_FILTER}
+                            Days
                         </Text>
                     </Button>
-                    <Button onPress={onDaysSortPress(100_000)}>
+                    <Button
+                        onPress={onDaysSortPress(ALL_TIME_POPULAR_DAYS_FILTER)}
+                        style={sortDays === ALL_TIME_POPULAR_DAYS_FILTER ? styles.activeFilterButton : null}
+                    >
                         <Text>
                             All Time
                         </Text>

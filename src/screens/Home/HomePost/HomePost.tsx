@@ -100,35 +100,34 @@ export const HomePost = (props: HomePostProps) => {
                         onPress={onVote(VoteTypeEnum.Positive)}
                         style={currentPost.userVote === VoteTypeEnum.Positive ? styles.buttonActive : null}
                     >
-                        <Text
-                            style={[
-                                styles.buttonText,
-                                styles.voteCountText,
-                            ]}
+                        <View
+                            gap={{ horizontal: 5 }}
+                            style={styles.buttonVote}
                         >
-                            {positiveVotes.length}
-                        </Text>
-                        <Text style={styles.buttonText}>
-                            Like
-                        </Text>
+                            <Text style={styles.buttonText}>
+                                {positiveVotes.length}
+                            </Text>
+                            <Text style={styles.buttonText}>
+                                Like
+                            </Text>
+
+                        </View>
                     </Button>
                     <Button
                         onPress={onVote(VoteTypeEnum.Negative)}
-                        style={[
-                            currentPost.userVote === VoteTypeEnum.Negative ? styles.buttonActive : null,
-                        ]}
+                        style={currentPost.userVote === VoteTypeEnum.Negative ? styles.buttonActive : null}
                     >
-                        <Text
-                            style={[
-                                styles.buttonText,
-                                styles.voteCountText,
-                            ]}
+                        <View
+                            gap={{ horizontal: 5 }}
+                            style={styles.buttonVote}
                         >
-                            {negativeVotes.length}
-                        </Text>
-                        <Text style={styles.buttonText}>
-                            Dislike
-                        </Text>
+                            <Text style={styles.buttonText}>
+                                {negativeVotes.length}
+                            </Text>
+                            <Text style={styles.buttonText}>
+                                Dislike
+                            </Text>
+                        </View>
                     </Button>
                 </View>
                 <View

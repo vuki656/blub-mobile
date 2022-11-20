@@ -18,6 +18,13 @@ export const styles = StyleSheet.create({
     buttonText: {
         fontFamily: Fonts.bold,
     },
+    buttonVote: {
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     buttons: {
         backgroundColor: 'transparent',
     },
@@ -35,8 +42,5 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         marginBottom: 20,
         marginTop: 15,
-    },
-    voteCountText: {
-        marginRight: 5,
     },
 })

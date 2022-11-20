@@ -7,7 +7,6 @@ import type { ViewProps } from './View.types'
 
 const HALF = 2
 
-// TODO: use new api everywhere
 export const View = (props: ViewProps) => {
     const {
         children: childrenProp,
@@ -26,7 +25,8 @@ export const View = (props: ViewProps) => {
 
             let mappedGap = {}
 
-            // If we only have 2 children, apply half of the gap to both
+            // If we only have 2 children, apply half of the gap to both 
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
             if (childrenArray.length === 2) {
                 if (index === 0) {
                     if (gap.horizontal) {
@@ -69,7 +69,7 @@ export const View = (props: ViewProps) => {
             }
 
             // Skip first and last
-            if (index === 0 || index === childrenArray.length) {
+            if (index === 0 || index === childrenArray.length - 1) {
                 return child
             }
 
