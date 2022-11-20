@@ -1,3 +1,4 @@
+import { NetworkStatus } from '@apollo/client'
 import React, { useRef } from 'react'
 import {
     ActivityIndicator,
@@ -35,7 +36,9 @@ export const Home = () => {
 
     const scrollViewRef = useRef<ScrollView>(null)
 
-    const { data, loading, refetch } = useGetPostsQuery({
+    const { data, loading, networkStatus, refetch } = useGetPostsQuery({
+        nextFetchPolicy: 'network-only',
+        notifyOnNetworkStatusChange: true,
         onCompleted: () => {
             scrollViewRef.current?.scrollTo({
                 animated: false,
@@ -50,17 +53,6 @@ export const Home = () => {
             },
         },
     })
-
-    if (loading) {
-        return (
-            <View style={styles.posts}>
-                <ActivityIndicator
-                    color={Colors.blue}
-                    size="large"
-                />
-            </View>
-        )
-    }
 
     const resetPagination = () => {
         setSkipAmount(0)
@@ -103,13 +95,24 @@ export const Home = () => {
     const previousButtonDisabled = skipAmount === 0
     const nextButtonDisabled = (skipAmount + PAGINATED_POST_LIST_AMOUNT) >= Number(data?.posts.total)
 
+    if (loading) {
+        return (
+            <View style={styles.posts}>
+                <ActivityIndicator
+                    color={Colors.blue}
+                    size="large"
+                />
+            </View>
+        )
+    }
+
     return (
         <ScrollView
             ref={scrollViewRef}
             refreshControl={(
                 <RefreshControl
                     onRefresh={refetch}
-                    refreshing={loading}
+                    refreshing={networkStatus === NetworkStatus.refetch}
                 />
             )}
             style={styles.root}
