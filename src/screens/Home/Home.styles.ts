@@ -21,12 +21,13 @@ export const styles = StyleSheet.create({
     filterButtons: {
         display: 'flex',
         flexDirection: 'row',
-        marginVertical: VERTICAL_SPACING,
+        marginTop: VERTICAL_SPACING,
         paddingHorizontal: HORIZONTAL_SPACING,
     },
     filterPopularCategoriesButtons: {
         display: 'flex',
         flexDirection: 'row',
+        marginTop: VERTICAL_SPACING,
         paddingHorizontal: HORIZONTAL_SPACING,
     },
     paginationButtonText: {
