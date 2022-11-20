@@ -60,10 +60,21 @@ export const View = (props: ViewProps) => {
                     }
                 }
 
+                let componentStyle = child.props.style
+
+                if (Array.isArray(componentStyle)) {
+                    componentStyle = componentStyle.reduce((accumulator, styleItem) => {
+                        return {
+                            ...accumulator,
+                            ...styleItem,
+                        }
+                    }, {})
+                }
+
                 return React.cloneElement(child as React.ReactElement, {
                     style: {
                         ...mappedGap,
-                        ...child.props.style,
+                        ...componentStyle,
                     },
                 })
             }

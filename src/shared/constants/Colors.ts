@@ -7,6 +7,7 @@ export const Colors = {
     },
     blue: '#4DABF7',
     border: '#373A40',
+    red: '#E03131',
     shadow: {
         default: '#000000',
     },
@@ -17,4 +18,6 @@ export const Colors = {
         disabled: '#25262B',
         light: '#909296',
     },
+    white: '#FFFFFF',
+    yellow: '#FCC419',
 }

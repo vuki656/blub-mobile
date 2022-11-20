@@ -5,9 +5,7 @@ import {
     ListIcon,
     PencilIcon,
 } from '../components/Icons'
-import {
-    CreatePostScreen,
-    Home,
+import { CreatePost, Home,
 } from '../screens'
 import { Colors } from '../shared/constants'
 import type { RootTabParamList } from '../shared/types'
@@ -21,6 +19,7 @@ export const BottomTabNavigator = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: Colors.text.default,
+                tabBarHideOnKeyboard: true,
                 tabBarStyle: {
                     alignItems: 'center',
                     display: 'flex',
@@ -45,7 +44,7 @@ export const BottomTabNavigator = () => {
                 })}
             />
             <BottomTabNavigatorComponent.Screen
-                component={CreatePostScreen}
+                component={CreatePost}
                 name="CreatePost"
                 options={{
                     tabBarIcon: (props) => {

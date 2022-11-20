@@ -12,6 +12,7 @@ import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { ToastProvider } from 'react-native-toast-notifications'
 
 import { Navigation } from './navigation'
 import { client } from './shared/apollo'
@@ -50,16 +51,18 @@ export default function App() {
 
     return (
         <SafeAreaProvider>
-            <Navigation colorScheme="dark" />
+            <Navigation />
             <StatusBar style="light" />
         </SafeAreaProvider>
     )
 }
 
-const AppWithApollo = (
+const AppWithProviders = (
     <ApolloProvider client={client}>
-        <App />
+        <ToastProvider>
+            <App />
+        </ToastProvider>
     </ApolloProvider>
 )
 
-registerRootComponent(() => AppWithApollo)
+registerRootComponent(() => AppWithProviders)

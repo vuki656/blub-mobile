@@ -1,3 +1,5 @@
 import type { TouchableOpacityProps } from 'react-native'
 
-export type ButtonProps = TouchableOpacityProps
+export type ButtonProps = TouchableOpacityProps & {
+    loading?: boolean
+}

@@ -3,9 +3,13 @@ import type {
     StyleProp,
     ViewStyle,
 } from 'react-native'
-import { Pressable } from 'react-native'
+import {
+    ActivityIndicator,
+    Pressable,
+} from 'react-native'
 
 import { Colors } from '../../shared/constants'
+import { View } from '../View'
 
 import type { ButtonProps } from './Button.types'
 
@@ -13,6 +17,7 @@ export const Button = (props: ButtonProps) => {
     const {
         children,
         disabled,
+        loading,
         style,
         ...other
     } = props
@@ -48,7 +53,22 @@ export const Button = (props: ButtonProps) => {
             ]}
             {...other}
         >
-            {children}
+            {loading ? (
+                <View
+                    gap={{ horizontal: 10 }}
+                    style={{
+                        backgroundColor: 'transparent',
+                        display: 'flex',
+                        flexDirection: 'row',
+                    }}
+                >
+                    <ActivityIndicator
+                        color={Colors.white}
+                        size="small"
+                    />
+                    {children}
+                </View>
+            ) : children}
         </Pressable>
     )
 }

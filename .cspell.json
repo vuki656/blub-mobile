@@ -15,6 +15,7 @@
         "eslintcache",
         "yarnpkg",
         "pressable",
-        "blubtalk"
+        "blubtalk",
+        "hookform"
     ]
 }

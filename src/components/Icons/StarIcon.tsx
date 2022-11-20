@@ -7,14 +7,11 @@ import { IconBase } from './IconBase'
 export const StarIcon = (props: IconProps) => (
     <IconBase {...props}>
         <Svg
-            color="white"
             fill="none"
-            height={24}
             stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            width={24}
             {...props}
         >
             <Path

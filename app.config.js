@@ -10,7 +10,7 @@ module.exports = {
         scheme: "blub",
         userInterfaceStyle: "automatic",
         extra: {
-            apiUrl: "https://blub-api-mm3gj.ondigitalocean.app/"
+            apiUrl: "http://192.168.0.15:8080/graphql"
         },
         splash: {
             image: "./assets/images/splash.png",

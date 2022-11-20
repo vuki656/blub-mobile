@@ -3101,6 +3101,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^2.9.10":
+  version: 2.9.10
+  resolution: "@hookform/resolvers@npm:2.9.10"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: ae3395372d6ff11506a72bb6b3c57046bd14b457c2fe1f0485f60cf2dba0ef4484e3a2fb5a0f6a217f6d701393ebc3683a2ede7c81c6f13e71f965f520c7af16
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.6":
   version: 0.11.7
   resolution: "@humanwhocodes/config-array@npm:0.11.7"
@@ -5450,6 +5459,7 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.0
     "@graphql-codegen/typescript-operations": 2.5.5
     "@graphql-codegen/typescript-react-apollo": ^3.3.5
+    "@hookform/resolvers": ^2.9.10
     "@react-native-async-storage/async-storage": ~1.17.3
     "@react-navigation/bottom-tabs": ^6.4.0
     "@react-navigation/native": ^6.0.13
@@ -5474,13 +5484,16 @@ __metadata:
     npm-package-json-lint: ^6.3.0
     react: 18.1.0
     react-dom: 18.1.0
+    react-hook-form: ^7.39.4
     react-native: 0.70.5
     react-native-safe-area-context: 4.4.1
     react-native-screens: ~3.18.2
     react-native-svg: 13.4.0
+    react-native-toast-notifications: ^3.3.1
     react-native-uuid: ^2.0.1
     react-test-renderer: ^18.2.0
     typescript: ^4.8.4
+    zod: ^3.19.1
   languageName: unknown
   linkType: soft
 
@@ -13292,6 +13305,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.39.4":
+  version: 7.39.4
+  resolution: "react-hook-form@npm:7.39.4"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 767337330a9ce305296adb435e05380fb138308931a0ca20f7a681604acf16a978f14f48d52279fb2eccc690f808622fa4db019835fd0e4fd6a768d2c13b83d0
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.12.0 || ^17.0.0 || ^18.0.0, react-is@npm:^18.0.0, react-is@npm:^18.1.0, react-is@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
@@ -13365,6 +13387,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: e630c057d6a0947c4d729538f643585a1fd9380975c1cf9adffad7647822b35219a9e1e60407f422b2b70592ed7f7e8766fab15df74f9cfce0b1c8a1c3544676
+  languageName: node
+  linkType: hard
+
+"react-native-toast-notifications@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "react-native-toast-notifications@npm:3.3.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: c3c6eddfff818e067fb6eeb46711afb53af83bbf6e9c4089cea578c6103a3fbbaa54d0e0c24d6c4d972d30f8fa32360187bad2ee7bdd5e425e0cf883dfdae48e
   languageName: node
   linkType: hard
 
@@ -16307,5 +16339,12 @@ __metadata:
   version: 0.8.15
   resolution: "zen-observable@npm:0.8.15"
   checksum: b7289084bc1fc74a559b7259faa23d3214b14b538a8843d2b001a35e27147833f4107590b1b44bf5bc7f6dfe6f488660d3a3725f268e09b3925b3476153b7821
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.19.1":
+  version: 3.19.1
+  resolution: "zod@npm:3.19.1"
+  checksum: 56e420ea5845912324a8fc61833714a2aec84954e418b52660d76502183c6e62fef9447cbfa64349640c5ce190cf2c24267e006bb80f066183e2f3fa9fe11864
   languageName: node
   linkType: hard
