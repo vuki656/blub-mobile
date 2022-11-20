@@ -11,6 +11,7 @@ import {
 export const Logo = () => {
     return (
         <View
+            gap={{ horizontal: 20 }}
             style={{
                 alignItems: 'center',
                 backgroundColor: 'transparent',
@@ -18,12 +19,14 @@ export const Logo = () => {
                 flexDirection: 'row',
             }}
         >
-            <ChatBubbleIcon color={Colors.blue} />
+            <ChatBubbleIcon
+                color={Colors.blue}
+                size={28}
+            />
             <Text
                 style={{
                     fontFamily: Fonts.bold,
                     fontSize: 20,
-                    marginHorizontal: 10,
                 }}
             >
                 Blub

@@ -25,7 +25,7 @@ export const View = (props: ViewProps) => {
 
             let mappedGap = {}
 
-            // If we only have 2 children, apply half of the gap to both 
+            // If we only have 2 children, apply half of the gap to both
             // eslint-disable-next-line @typescript-eslint/no-magic-numbers
             if (childrenArray.length === 2) {
                 if (index === 0) {
