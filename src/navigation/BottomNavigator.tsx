@@ -21,6 +21,13 @@ export const BottomTabNavigator = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: Colors.text.default,
+                tabBarStyle: {
+                    alignItems: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    padding: 15,
+                },
+                title: '',
             }}
         >
             <BottomTabNavigatorComponent.Screen
@@ -29,10 +36,12 @@ export const BottomTabNavigator = () => {
                 options={() => ({
                     tabBarIcon: (props) => {
                         return (
-                            <ListIcon color={props.color} />
+                            <ListIcon
+                                color={props.color}
+                                size={25}
+                            />
                         )
                     },
-                    title: 'Home',
                 })}
             />
             <BottomTabNavigatorComponent.Screen
@@ -41,10 +50,12 @@ export const BottomTabNavigator = () => {
                 options={{
                     tabBarIcon: (props) => {
                         return (
-                            <PencilIcon color={props.color} />
+                            <PencilIcon
+                                color={props.color}
+                                size={25}
+                            />
                         )
                     },
-                    title: 'Post',
                 }}
             />
         </BottomTabNavigatorComponent.Navigator>
