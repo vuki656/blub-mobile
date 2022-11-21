@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import React, { useRef } from 'react'
+import React from 'react'
 import {
     ActivityIndicator,
     RefreshControl,
@@ -34,7 +34,7 @@ export const Home = () => {
     const [sortDays, setSortDays] = React.useState<number | null>(null)
     const [sortType, setSortType] = React.useState(PostsSortEnum.New)
 
-    const scrollViewRef = useRef<ScrollView>(null)
+    const scrollViewRef = React.useRef<ScrollView>(null)
 
     const { data, loading, networkStatus, refetch } = useGetPostsQuery({
         nextFetchPolicy: 'network-only',
