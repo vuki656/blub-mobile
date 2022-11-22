@@ -93,8 +93,12 @@ export const Home = (props: RootTabScreenProps<'Home'>) => {
         }
     }
 
-    const onCommentTap = () => {
-        props.navigation.navigate('Post')
+    const onCommentTap = (postId: string) => {
+        return () => {
+            props.navigation.navigate('Post', {
+                postId,
+            })
+        }
     }
 
     const previousButtonDisabled = skipAmount === 0
@@ -197,7 +201,7 @@ export const Home = (props: RootTabScreenProps<'Home'>) => {
                     return (
                         <HomePost
                             key={post.id}
-                            onCommentPress={onCommentTap}
+                            onCommentPress={onCommentTap(post.id)}
                             post={post}
                         />
                     )

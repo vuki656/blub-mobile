@@ -7,7 +7,6 @@ import type { RootStackParamList } from './rootStack.types'
 export type RootTabParamList = {
     CreatePost: undefined
     Home: undefined
-    Post: undefined
 }
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

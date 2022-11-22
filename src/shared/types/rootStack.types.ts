@@ -4,7 +4,9 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 import type { RootTabParamList } from './rootTab.types'
 
 export type RootStackParamList = {
-    Post: undefined
+    Post: {
+        postId: string,
+    }
     Root: NavigatorScreenParams<RootTabParamList> | undefined
 }
 
