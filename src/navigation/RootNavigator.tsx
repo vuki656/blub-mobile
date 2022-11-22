@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 
+import { Post } from '../screens'
 import type { RootStackParamList } from '../shared/types'
 
 import { BottomTabNavigator } from './BottomNavigator'
@@ -20,6 +21,12 @@ export const RootNavigator = () => {
                     },
                 }}
             />
+            <StackNavigatorComponent.Group screenOptions={{ presentation: 'card' }}>
+                <StackNavigatorComponent.Screen
+                    component={Post}
+                    name="Post"
+                />
+            </StackNavigatorComponent.Group>
         </StackNavigatorComponent.Navigator>
     )
 }

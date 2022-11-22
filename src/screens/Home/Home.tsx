@@ -20,6 +20,7 @@ import {
     useGetPostsQuery,
 } from '../../graphql/types.generated'
 import { Colors } from '../../shared/constants'
+import type { RootTabScreenProps } from '../../shared/types'
 
 import { styles } from './Home.styles'
 import { HomePost } from './HomePost/HomePost'
@@ -29,7 +30,7 @@ const DEFAULT_POPULAR_DAYS_FILTER = 7
 const THIRTY_DAYS_POPULAR_DAYS_FILTER = 30
 const ALL_TIME_POPULAR_DAYS_FILTER = 100_000
 
-export const Home = () => {
+export const Home = (props: RootTabScreenProps<'Home'>) => {
     const [skipAmount, setSkipAmount] = React.useState(0)
     const [sortDays, setSortDays] = React.useState<number | null>(null)
     const [sortType, setSortType] = React.useState(PostsSortEnum.New)
@@ -90,6 +91,10 @@ export const Home = () => {
         return () => {
             setSortDays(days)
         }
+    }
+
+    const onCommentTap = () => {
+        props.navigation.navigate('Post')
     }
 
     const previousButtonDisabled = skipAmount === 0
@@ -192,6 +197,7 @@ export const Home = () => {
                     return (
                         <HomePost
                             key={post.id}
+                            onCommentPress={onCommentTap}
                             post={post}
                         />
                     )

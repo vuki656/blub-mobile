@@ -5,7 +5,9 @@ import {
     ListIcon,
     PencilIcon,
 } from '../components/Icons'
-import { CreatePost, Home,
+import {
+    CreatePost,
+    Home,
 } from '../screens'
 import { Colors } from '../shared/constants'
 import type { RootTabParamList } from '../shared/types'

@@ -22,7 +22,11 @@ import type { HomePostProps } from './HomePost.types'
 const SHARE_TEXT_CUTOFF_CHARACTER = 40
 
 export const HomePost = (props: HomePostProps) => {
-    const { post, style } = props
+    const {
+        onCommentPress,
+        post,
+        style,
+    } = props
 
     const [currentPost, setCurrentPost] = React.useState(post)
 
@@ -134,7 +138,7 @@ export const HomePost = (props: HomePostProps) => {
                     gap={{ horizontal: 10 }}
                     style={styles.buttonRow}
                 >
-                    <Button>
+                    <Button onPress={onCommentPress}>
                         <Text style={styles.buttonText}>
                             Comment
                         </Text>
