@@ -10,8 +10,8 @@ import { Logo } from './Logo'
 const StackNavigatorComponent = createNativeStackNavigator<RootStackParamList>()
 
 export const RootNavigator = () => {
-    return (
-        <StackNavigatorComponent.Navigator>
+    return ( // TODO: remove initial route name once done
+        <StackNavigatorComponent.Navigator initialRouteName="Post">
             <StackNavigatorComponent.Screen
                 component={BottomTabNavigator}
                 name="Root"
@@ -24,6 +24,9 @@ export const RootNavigator = () => {
             <StackNavigatorComponent.Group screenOptions={{ presentation: 'card' }}>
                 <StackNavigatorComponent.Screen
                     component={Post}
+                    initialParams={{
+                        postId: '8206bc5d-3556-4faa-9a65-e608612092b7', // TODO: remove once done
+                    }}
                     name="Post"
                 />
             </StackNavigatorComponent.Group>

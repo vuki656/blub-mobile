@@ -5,7 +5,7 @@ import type { RootTabParamList } from './rootTab.types'
 
 export type RootStackParamList = {
     Post: {
-        postId: string,
+        postId: string
     }
     Root: NavigatorScreenParams<RootTabParamList> | undefined
 }

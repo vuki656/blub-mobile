@@ -2,10 +2,6 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
     documents: './src/graphql/**/*.gql',
-    config: {
-        DateTime: 'string',
-        JSON: '{ [key: string]: any }'
-    },
     hooks: {
         afterAllFileWrite: 'prettier --write'
     },

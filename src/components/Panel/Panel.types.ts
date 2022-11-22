@@ -1,3 +1,5 @@
 import type { View as DefaultView } from 'react-native'
 
-export type PanelProps = DefaultView['props']
+import type { ViewProps } from '../View'
+
+export type PanelProps = DefaultView['props'] & ViewProps

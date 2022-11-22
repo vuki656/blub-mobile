@@ -18,7 +18,9 @@ export const Panel = (props: PanelProps) => {
                 {
                     backgroundColor: Colors.background.panel,
                     borderRadius: 4,
+                    display: 'flex',
                     elevation: 1,
+                    flexDirection: 'column',
                     shadowColor: Colors.shadow.default,
                     shadowOffset: {
                         height: 1,
