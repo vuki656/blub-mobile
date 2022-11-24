@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 const MIN_TEXT_LENGTH = 4
-const MAX_TEXT_LENGTH = 15_000
+const MAX_TEXT_LENGTH = 15000
 
 export const postValidation = z.object({
     text: z

@@ -7,6 +7,8 @@ module.exports = {
         project: "./tsconfig.json"
     },
     rules: {
-        "import/no-named-default": "off"
+        "import/no-named-default": "off",
+        "unicorn/numeric-separators-style": "off",
+        "@typescript-eslint/keyword-spacing": "off"
     }
 }

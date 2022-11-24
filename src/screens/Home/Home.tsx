@@ -28,7 +28,7 @@ import { HomePost } from './HomePost/HomePost'
 const PAGINATED_POST_LIST_AMOUNT = 20
 const DEFAULT_POPULAR_DAYS_FILTER = 7
 const THIRTY_DAYS_POPULAR_DAYS_FILTER = 30
-const ALL_TIME_POPULAR_DAYS_FILTER = 100_000
+const ALL_TIME_POPULAR_DAYS_FILTER = 100000
 
 export const Home = (props: RootTabScreenProps<'Home'>) => {
     const [skipAmount, setSkipAmount] = React.useState(0)

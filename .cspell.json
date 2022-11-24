@@ -16,6 +16,7 @@
         "yarnpkg",
         "pressable",
         "blubtalk",
-        "hookform"
+        "hookform",
+        "easignore"
     ]
 }
