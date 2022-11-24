@@ -22,6 +22,10 @@ export const styles = StyleSheet.create({
     panel: {
         padding: 15,
     },
+    highlightedVoteButton: {
+        borderColor: Colors.blue,
+        borderWidth: 1,
+    },
     reactionButtons: {
         backgroundColor: 'transparent',
         display: 'flex',

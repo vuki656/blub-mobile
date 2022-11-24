@@ -9,6 +9,7 @@ import {
 } from '../../components'
 import { ShareIcon } from '../../components/Icons'
 import {
+    useCreateVoteMutation,
     useGetPostQuery,
     VoteTypeEnum,
 } from '../../graphql/types.generated'
@@ -24,7 +25,7 @@ const BUTTON_GAP = 5
 export const Post = (props: RootStackScreenProps<'Post'>) => {
     const { navigation, route } = props
 
-    const { data } = useGetPostQuery({
+    const { data, refetch } = useGetPostQuery({
         variables: {
             args: {
                 id: route.params.postId,
@@ -32,13 +33,37 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
         },
     })
 
+    const [createVoteMutation] = useCreateVoteMutation({
+        onCompleted: (response) => {
+            void refetch()
+        },
+    })
+
     const post = data?.post
 
+    const onVote = (type: VoteTypeEnum) => {
+        return () => {
+            if (!post?.id || post.userVote) {
+                return
+            }
+
+            void createVoteMutation({
+                variables: {
+                    input: {
+                        postId: post.id,
+                        type,
+                    },
+                },
+            })
+        }
+    }
+
+    // TODO: link not included in share
     const onShare = () => {
         void Share.share({
             message: `${post?.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}...`,
             title: 'Blubtalk | What\'s on your mind?',
-            url: 'www.google.com', // TODO: implement once single view is done
+            url: `https://www.blubtalk.com/posts/${route.params.postId}`,
         })
     }
 
@@ -69,47 +94,50 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
                     gap={{ horizontal: 10 }}
                     style={styles.reactionButtons}
                 >
-                    <Button>
+                    <Button
+                        onPress={onVote(VoteTypeEnum.Positive)}
+                        style={post?.userVote === VoteTypeEnum.Positive ? styles.highlightedVoteButton : null}
+                    >
                         <View
                             gap={{ horizontal: BUTTON_GAP }}
                             style={styles.button}
                         >
                             <Text style={styles.buttonText}>
-                                {/* // TODO: this shows 0 if no votes, should it be blank */}
-                                {positiveVotes?.length}
+                                {positiveVotes?.length === 0 ? '' : positiveVotes?.length}
                             </Text>
                             <Text style={styles.buttonText}>
                                 Like
                             </Text>
                         </View>
                     </Button>
-                    <Button>
+                    <Button
+                        onPress={onVote(VoteTypeEnum.Negative)}
+                        style={post?.userVote === VoteTypeEnum.Negative ? styles.highlightedVoteButton : null}
+                    >
                         <View
                             gap={{ horizontal: BUTTON_GAP }}
                             style={styles.button}
                         >
                             <Text style={styles.buttonText}>
-                                {/* // TODO: this shows 0 if no votes, should it be blank */}
-                                {negativeVotes?.length}
+                                {negativeVotes?.length === 0 ? '' : negativeVotes?.length}
                             </Text>
                             <Text style={styles.buttonText}>
                                 Dislike
                             </Text>
                         </View>
                     </Button>
+                    <Button onPress={onShare}>
+                        <View
+                            gap={{ horizontal: BUTTON_GAP }}
+                            style={styles.button}
+                        >
+                            <ShareIcon />
+                            <Text style={styles.buttonText}>
+                                Share
+                            </Text>
+                        </View>
+                    </Button>
                 </View>
-                {/* // TODO: why is this not expanding to full height ??? */}
-                <Button onPress={onShare}>
-                    <View
-                        gap={{ horizontal: BUTTON_GAP }}
-                        style={styles.button}
-                    >
-                        <ShareIcon />
-                        <Text style={styles.buttonText}>
-                            Share
-                        </Text>
-                    </View>
-                </Button>
             </Panel>
         </View>
     )

@@ -68,11 +68,12 @@ export const HomePost = (props: HomePostProps) => {
         }
     }
 
+    // TODO: link not included in share
     const onShare = () => {
         void Share.share({
             message: `${currentPost.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}...`,
             title: 'Blubtalk | What\'s on your mind?',
-            url: 'www.google.com', // TODO: implement once single view is done
+            url: `https://www.blubtalk.com/posts/${post.id}`,
         })
     }
 
