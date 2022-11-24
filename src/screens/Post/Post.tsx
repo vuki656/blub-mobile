@@ -1,14 +1,24 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import React from 'react'
-import { Share } from 'react-native'
+import {
+    Controller,
+    useForm,
+} from 'react-hook-form'
+import {
+    ScrollView,
+    Share,
+} from 'react-native'
 
 import {
     Button,
+    Input,
     Panel,
     Text,
     View,
 } from '../../components'
 import { ShareIcon } from '../../components/Icons'
 import {
+    useCreateCommentMutation,
     useCreateVoteMutation,
     useGetPostQuery,
     VoteTypeEnum,
@@ -17,13 +27,25 @@ import { formatDate } from '../../shared/date'
 import type { RootStackScreenProps } from '../../shared/types'
 
 import { styles } from './Post.styles'
+import type { CommentFormType } from './Post.types'
+import { commentValidation } from './Post.validation'
 
 const SHARE_TEXT_CUTOFF_CHARACTER = 40
 const BUTTON_GAP = 5
 
-// TODO: why are generated dates 'any' type ?????????????
 export const Post = (props: RootStackScreenProps<'Post'>) => {
-    const { navigation, route } = props
+    const { route } = props
+
+    const {
+        control,
+        handleSubmit,
+        reset,
+    } = useForm<CommentFormType>({
+        defaultValues: {
+            content: '',
+        },
+        resolver: zodResolver(commentValidation),
+    })
 
     const { data, refetch } = useGetPostQuery({
         variables: {
@@ -34,7 +56,15 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
     })
 
     const [createVoteMutation] = useCreateVoteMutation({
-        onCompleted: (response) => {
+        onCompleted: () => {
+            void refetch()
+        },
+    })
+
+    const [createCommentMutation, { loading: createCommentLoading }] = useCreateCommentMutation({
+        onCompleted: () => {
+            reset()
+
             void refetch()
         },
     })
@@ -58,12 +88,25 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
         }
     }
 
-    // TODO: link not included in share
     const onShare = () => {
-        void Share.share({
-            message: `${post?.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}...`,
+        void Share.share({ // eslint-disable-next-line max-len
+            message: `${post?.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}... https://www.blubtalk.com/posts/${route.params.postId}`,
             title: 'Blubtalk | What\'s on your mind?',
-            url: `https://www.blubtalk.com/posts/${route.params.postId}`,
+        })
+    }
+
+    const onCommentSubmit = (formValues: CommentFormType) => {
+        if (!post) {
+            return
+        }
+
+        void createCommentMutation({
+            variables: {
+                input: {
+                    content: formValues.content,
+                    postId: post.id,
+                },
+            },
         })
     }
 
@@ -76,56 +119,58 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
     })
 
     return (
-        <View
-            gap={{ vertical: 10 }}
-            style={styles.root}
-        >
-            <Panel
-                gap={{ vertical: 20 }}
-                style={styles.panel}
+        <ScrollView>
+            <View
+                gap={{ vertical: 15 }}
+                style={styles.root}
             >
-                <Text style={styles.date}>
-                    {formatDate(post?.createdAt)}
-                </Text>
-                <Text style={styles.text}>
-                    {post?.text}
-                </Text>
-                <View
-                    gap={{ horizontal: 10 }}
-                    style={styles.reactionButtons}
+                <Panel
+                    gap={{ vertical: 10 }}
+                    style={styles.panel}
                 >
-                    <Button
-                        onPress={onVote(VoteTypeEnum.Positive)}
-                        style={post?.userVote === VoteTypeEnum.Positive ? styles.highlightedVoteButton : null}
+                    <Text style={styles.date}>
+                        {formatDate(post?.createdAt)}
+                    </Text>
+                    <Text style={styles.text}>
+                        {post?.text}
+                    </Text>
+                    <View
+                        gap={{ horizontal: 10 }}
+                        style={styles.reactionButtons}
                     >
-                        <View
-                            gap={{ horizontal: BUTTON_GAP }}
-                            style={styles.button}
+                        <Button
+                            onPress={onVote(VoteTypeEnum.Positive)}
+                            style={post?.userVote === VoteTypeEnum.Positive ? styles.highlightedVoteButton : null}
                         >
-                            <Text style={styles.buttonText}>
-                                {positiveVotes?.length === 0 ? '' : positiveVotes?.length}
-                            </Text>
-                            <Text style={styles.buttonText}>
-                                Like
-                            </Text>
-                        </View>
-                    </Button>
-                    <Button
-                        onPress={onVote(VoteTypeEnum.Negative)}
-                        style={post?.userVote === VoteTypeEnum.Negative ? styles.highlightedVoteButton : null}
-                    >
-                        <View
-                            gap={{ horizontal: BUTTON_GAP }}
-                            style={styles.button}
+                            <View
+                                gap={{ horizontal: BUTTON_GAP }}
+                                style={styles.button}
+                            >
+                                <Text style={styles.buttonText}>
+                                    {positiveVotes?.length === 0 ? '' : positiveVotes?.length}
+                                </Text>
+                                <Text style={styles.buttonText}>
+                                    Like
+                                </Text>
+                            </View>
+                        </Button>
+                        <Button
+                            onPress={onVote(VoteTypeEnum.Negative)}
+                            style={post?.userVote === VoteTypeEnum.Negative ? styles.highlightedVoteButton : null}
                         >
-                            <Text style={styles.buttonText}>
-                                {negativeVotes?.length === 0 ? '' : negativeVotes?.length}
-                            </Text>
-                            <Text style={styles.buttonText}>
-                                Dislike
-                            </Text>
-                        </View>
-                    </Button>
+                            <View
+                                gap={{ horizontal: BUTTON_GAP }}
+                                style={styles.button}
+                            >
+                                <Text style={styles.buttonText}>
+                                    {negativeVotes?.length === 0 ? '' : negativeVotes?.length}
+                                </Text>
+                                <Text style={styles.buttonText}>
+                                    Dislike
+                                </Text>
+                            </View>
+                        </Button>
+                    </View>
                     <Button onPress={onShare}>
                         <View
                             gap={{ horizontal: BUTTON_GAP }}
@@ -137,8 +182,55 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
                             </Text>
                         </View>
                     </Button>
-                </View>
-            </Panel>
-        </View>
+                </Panel>
+                <Panel
+                    gap={{ vertical: 20 }}
+                    style={styles.panel}
+                >
+                    <Controller
+                        control={control}
+                        name="content"
+                        render={({ field, fieldState }) => (
+                            <Input
+                                error={Boolean(fieldState.error)}
+                                helperText={fieldState.error?.message}
+                                label="Comment"
+                                multiline={true}
+                                numberOfLines={8}
+                                onBlur={field.onBlur}
+                                onChangeText={field.onChange}
+                                placeholder="What's on your mind?"
+                                value={field.value}
+                            />
+                        )}
+                    />
+                    <Button
+                        loading={createCommentLoading}
+                        onPress={handleSubmit(onCommentSubmit)}
+                        style={styles.postCommentButton}
+                    >
+                        <Text>
+                            Post
+                        </Text>
+                    </Button>
+                </Panel>
+                {data?.post.comments?.map((comment) => {
+                    return (
+                        <Panel
+                            gap={{ vertical: 10 }}
+                            key={comment.id}
+                            style={styles.comment}
+                        >
+                            <Text style={styles.commentPostDate}>
+                                {formatDate(comment.createdAt)}
+                            </Text>
+                            <Text>
+                                {comment.content}
+                            </Text>
+                        </Panel>
+                    )
+                })}
+            </View>
+        </ScrollView>
     )
 }

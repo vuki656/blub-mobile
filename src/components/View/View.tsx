@@ -79,9 +79,18 @@ export const View = (props: ViewProps) => {
                 })
             }
 
-            // Skip first and last
-            if (index === 0 || index === childrenArray.length - 1) {
-                return child
+            if (index === childrenArray.length - 1 && gap.vertical) {
+                mappedGap = {
+                    ...mappedGap,
+                    marginTop: gap.vertical,
+                }
+            }
+
+            if (index === 0 && gap.vertical) {
+                mappedGap = {
+                    ...mappedGap,
+                    marginBottom: gap.vertical,
+                }
             }
 
             if (gap.horizontal) {

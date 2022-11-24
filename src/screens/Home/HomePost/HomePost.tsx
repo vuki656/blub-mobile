@@ -68,12 +68,10 @@ export const HomePost = (props: HomePostProps) => {
         }
     }
 
-    // TODO: link not included in share
     const onShare = () => {
-        void Share.share({
-            message: `${currentPost.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}...`,
+        void Share.share({ // eslint-disable-next-line max-len
+            message: `${currentPost.text.slice(0, SHARE_TEXT_CUTOFF_CHARACTER)}... https://www.blubtalk.com/posts/${currentPost.id}`,
             title: 'Blubtalk | What\'s on your mind?',
-            url: `https://www.blubtalk.com/posts/${post.id}`,
         })
     }
 

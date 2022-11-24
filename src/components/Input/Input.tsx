@@ -11,13 +11,28 @@ export const Input = (props: InputProps) => {
     const {
         error,
         helperText,
+        label,
         numberOfLines = 4,
         style,
         ...other
     } = props
 
     return (
-        <View gap={{ vertical: 10 }}>
+        <View
+            gap={{ vertical: 10 }}
+            style={{ backgroundColor: 'transparent' }}
+        >
+            {label ? (
+                <Text
+                    style={{
+                        backgroundColor: 'transparent',
+                        color: Colors.text.default,
+                        fontSize: 12,
+                    }}
+                >
+                    {label}
+                </Text>
+            ) : null}
             <TextInput
                 {...other}
                 cursorColor={Colors.blue}
@@ -37,14 +52,16 @@ export const Input = (props: InputProps) => {
                 ]}
                 textAlignVertical="top"
             />
-            <Text
-                style={{
-                    color: error ? Colors.red : Colors.text.light,
-                    fontSize: 12,
-                }}
-            >
-                {helperText}
-            </Text>
+            {helperText ? (
+                <Text
+                    style={{
+                        color: error ? Colors.red : Colors.text.light,
+                        fontSize: 12,
+                    }}
+                >
+                    {helperText}
+                </Text>
+            ) : null}
         </View>
     )
 }

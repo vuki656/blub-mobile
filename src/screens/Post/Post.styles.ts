@@ -6,6 +6,9 @@ import {
 } from '../../shared/constants'
 
 export const styles = StyleSheet.create({
+    backButton: {
+        backgroundColor: Colors.blue,
+    },
     button: {
         alignItems: 'center',
         backgroundColor: 'transparent',
@@ -16,15 +19,26 @@ export const styles = StyleSheet.create({
     buttonText: {
         fontFamily: Fonts.bold,
     },
+    comment: {
+        padding: 20,
+    },
+    commentPostDate: {
+        color: Colors.text.light,
+        fontSize: 12,
+    },
     date: {
         color: Colors.text.light,
-    },
-    panel: {
-        padding: 15,
     },
     highlightedVoteButton: {
         borderColor: Colors.blue,
         borderWidth: 1,
+    },
+    panel: {
+        padding: 15,
+    },
+    postCommentButton: {
+        backgroundColor: Colors.blue,
+        borderColor: 'none',
     },
     reactionButtons: {
         backgroundColor: 'transparent',

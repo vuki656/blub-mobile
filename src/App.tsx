@@ -20,9 +20,6 @@ import { StorageKeys } from './shared/constants'
 import { useCachedResources } from './shared/hooks'
 import { uuid } from './shared/utils'
 
-// TODO: migrate to style guide
-// TODO: navigation should be done like this https://reactnavigation.org/docs/typescript/#nesting-navigators
-// TODO: rename folders to be better
 export default function App() {
     const isLoadingComplete = useCachedResources()
 
