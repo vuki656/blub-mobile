@@ -119,7 +119,7 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
     })
 
     return (
-        <ScrollView>
+        <ScrollView style={styles.scrollRoot}>
             <View
                 gap={{ vertical: 15 }}
                 style={styles.root}

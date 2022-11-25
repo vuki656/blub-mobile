@@ -48,6 +48,10 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
     },
+    scrollRoot: {
+        height: '100%',
+        backgroundColor: Colors.background.root, 
+    },
     root: {
         flex: 1,
         padding: 10,

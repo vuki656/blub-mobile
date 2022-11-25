@@ -139,6 +139,7 @@ export const HomePost = (props: HomePostProps) => {
                 >
                     <Button onPress={onCommentPress}>
                         <Text style={styles.buttonText}>
+                            {currentPost.comments?.length === 0 ? '' : `${currentPost.comments?.length} `}
                             Comment
                         </Text>
                     </Button>
