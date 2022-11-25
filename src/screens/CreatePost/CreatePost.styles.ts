@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.blue,
         borderWidth: 0,
         flex: 0,
+        marginTop: 15,
     },
     submitButtonText: {
         fontFamily: Fonts.bold,

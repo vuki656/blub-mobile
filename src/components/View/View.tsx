@@ -26,7 +26,6 @@ export const View = (props: ViewProps) => {
             let mappedGap = {}
 
             // If we only have 2 children, apply half of the gap to both
-            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
             if (childrenArray.length === 2) {
                 if (index === 0) {
                     if (gap.horizontal) {
@@ -72,10 +71,10 @@ export const View = (props: ViewProps) => {
                 }
 
                 return React.cloneElement(child as React.ReactElement, {
-                    style: {
-                        ...mappedGap,
-                        ...componentStyle,
-                    },
+                    style: [
+                        mappedGap,
+                        componentStyle,
+                    ],
                 })
             }
 
@@ -110,10 +109,10 @@ export const View = (props: ViewProps) => {
             }
 
             return React.cloneElement(child as React.ReactElement, {
-                style: {
-                    ...mappedGap,
-                    ...child.props.style,
-                },
+                style: [
+                    mappedGap,
+                    child.props.style,
+                ],
             })
         })
     }

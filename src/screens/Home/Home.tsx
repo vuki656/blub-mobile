@@ -180,6 +180,7 @@ export const Home = (props: RootTabScreenProps<'Home'>) => {
                     >
                         <Text>
                             {THIRTY_DAYS_POPULAR_DAYS_FILTER}
+                            {' '}
                             Days
                         </Text>
                     </Button>

@@ -209,7 +209,7 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
                         onPress={handleSubmit(onCommentSubmit)}
                         style={styles.postCommentButton}
                     >
-                        <Text>
+                        <Text style={styles.postCommentButtonText}>
                             Post
                         </Text>
                     </Button>

@@ -40,6 +40,9 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.blue,
         borderColor: 'none',
     },
+    postCommentButtonText: {
+        fontFamily: Fonts.bold,
+    },
     reactionButtons: {
         backgroundColor: 'transparent',
         display: 'flex',

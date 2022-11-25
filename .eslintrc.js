@@ -9,6 +9,7 @@ module.exports = {
     rules: {
         "import/no-named-default": "off",
         "unicorn/numeric-separators-style": "off",
+        "@typescript-eslint/no-magic-numbers": "off",
         "@typescript-eslint/keyword-spacing": "off"
     }
 }
