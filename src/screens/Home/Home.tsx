@@ -101,8 +101,11 @@ export const Home = (props: RootTabScreenProps<'Home'>) => {
         }
     }
 
+    const noMoreNewPosts = (skipAmount + PAGINATED_POST_LIST_AMOUNT) >= Number(data?.posts.total)
+    const noMoreFilteredPosts = (data?.posts.list.length ?? 0) < PAGINATED_POST_LIST_AMOUNT
+
     const previousButtonDisabled = skipAmount === 0
-    const nextButtonDisabled = (skipAmount + PAGINATED_POST_LIST_AMOUNT) >= Number(data?.posts.total)
+    const nextButtonDisabled = noMoreFilteredPosts || noMoreNewPosts
 
     if (loading) {
         return (

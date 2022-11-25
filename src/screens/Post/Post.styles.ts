@@ -48,13 +48,13 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
     },
-    scrollRoot: {
-        height: '100%',
-        backgroundColor: Colors.background.root, 
-    },
     root: {
         flex: 1,
         padding: 10,
+    },
+    scrollRoot: {
+        backgroundColor: Colors.background.root,
+        height: '100%',
     },
     text: {
         fontSize: 15,
