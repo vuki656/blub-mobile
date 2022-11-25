@@ -93,6 +93,15 @@ export const View = (props: ViewProps) => {
             }
 
             if (gap.horizontal) {
+                if (index === 0 || index === childrenArray.length - 1) {
+                    return React.cloneElement(child as React.ReactElement, {
+                        style: [
+                            mappedGap,
+                            child.props.style,
+                        ],
+                    })
+                }
+
                 mappedGap = {
                     ...mappedGap,
                     marginLeft: gap.horizontal / HALF,
