@@ -210,7 +210,7 @@ export const Post = (props: RootStackScreenProps<'Post'>) => {
                         style={styles.postCommentButton}
                     >
                         <Text style={styles.postCommentButtonText}>
-                            Post
+                            Submit
                         </Text>
                     </Button>
                 </Panel>

@@ -15,6 +15,13 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
     },
+    buttonShare: {
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     buttonText: {
         fontFamily: Fonts.bold,
     },

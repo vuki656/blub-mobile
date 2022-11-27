@@ -144,7 +144,15 @@ export const HomePost = (props: HomePostProps) => {
                         </Text>
                     </Button>
                     <Button onPress={onShare}>
-                        <ShareIcon />
+                        <View
+                            gap={{ horizontal: 10 }}
+                            style={styles.buttonShare}
+                        >
+                            <ShareIcon />
+                            <Text style={styles.buttonText}>
+                                Share
+                            </Text>
+                        </View>
                     </Button>
                 </View>
             </View>

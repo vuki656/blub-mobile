@@ -118,7 +118,7 @@ export const CreatePost = () => {
                 style={styles.submitButton}
             >
                 <Text style={styles.submitButtonText}>
-                    Post
+                    Submit
                 </Text>
             </Button>
         </View>
