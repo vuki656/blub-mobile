@@ -1,37 +1,40 @@
 {
-    "expo": {
-        "entryPoint": "./src/App.tsx",
-        "extra": {
-            "apiUrl": "https://blub-api-mm3gj.ondigitalocean.app/",
-            "eas": {
-                "projectId": "60ae71d0-09b2-49b4-9c38-f99060fc1a8a"
-            }
-        },
-        "assetBundlePatterns": ["**/*"],
-        "icon": "./assets/images/icon.png",
-        "android": {
-            "adaptiveIcon": {
-                "backgroundColor": "#5fa6db",
-                "foregroundImage": "./assets/images/adaptive-icon.png"
-            },
-            "package": "com.blub.app"
-        },
-        "name": "blub",
-        "ios": {
-            "supportsTablet": true
-        },
-        "orientation": "portrait",
-        "scheme": "blub",
-        "slug": "blub",
-        "splash": {
-            "backgroundColor": "#151618",
-            "image": "./assets/images/splash.png",
-            "resizeMode": "contain"
-        },
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "userInterfaceStyle": "automatic",
-        "version": "1.0.0"
-    }
+  "expo": {
+    "entryPoint": "./src/App.tsx",
+    "extra": {
+      "apiUrl": "https://blub-api-mm3gj.ondigitalocean.app/",
+      "eas": {
+        "projectId": "60ae71d0-09b2-49b4-9c38-f99060fc1a8a"
+      }
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "icon": "./assets/images/icon.png",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#5fa6db",
+        "foregroundImage": "./assets/images/adaptive-icon.png"
+      },
+      "package": "com.blub.app",
+      "versionCode": 2
+    },
+    "name": "blub",
+    "ios": {
+      "supportsTablet": true
+    },
+    "orientation": "portrait",
+    "scheme": "blub",
+    "slug": "blub",
+    "splash": {
+      "backgroundColor": "#151618",
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "userInterfaceStyle": "automatic",
+    "version": "1.0.0"
+  }
 }
