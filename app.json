@@ -11,7 +11,7 @@
         "icon": "./assets/images/icon.png",
         "android": {
             "adaptiveIcon": {
-                "backgroundColor": "#ffffff",
+                "backgroundColor": "#5fa6db",
                 "foregroundImage": "./assets/images/adaptive-icon.png"
             },
             "package": "com.blub.app"
@@ -24,7 +24,7 @@
         "scheme": "blub",
         "slug": "blub",
         "splash": {
-            "backgroundColor": "#ffffff",
+            "backgroundColor": "#151618",
             "image": "./assets/images/splash.png",
             "resizeMode": "contain"
         },
@@ -32,9 +32,6 @@
             "fallbackToCacheTimeout": 0
         },
         "userInterfaceStyle": "automatic",
-        "version": "1.0.0",
-        "web": {
-            "favicon": "./assets/images/favicon.png"
-        }
+        "version": "1.0.0"
     }
 }
