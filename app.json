@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png"
       },
       "package": "com.blub.app",
-      "versionCode": 2
+      "versionCode": 3
     },
     "name": "blub",
     "ios": {
